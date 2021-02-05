@@ -8,11 +8,11 @@ INPUT_SIZE = 44 # state size
 OUTPUT_LAYER_SIZE = 17 # probability for each action (num of actions)
 
 class ActorModel(nn.Module):
-    def __init__(self):
+    def __init__(self, input_dim, output_dim):
         super().__init__()
-        self.fc1 = nn.Linear(INPUT_SIZE, 400)
-        self.fc2 = nn.Linear(400, 300)
-        self.fc3 = nn.Linear(300, OUTPUT_LAYER_SIZE)
+        self.fc1 = nn.Linear(input_dim, 64)
+        self.fc2 = nn.Linear(64, 64)
+        self.fc3 = nn.Linear(64, output_dim)
 
     def forward(self, x):
         x = F.relu(self.fc1(x))

@@ -42,6 +42,24 @@ class TRPO():
         g = torch.cat([t.view(-1) for t in g])
         return g
 
+    def conjugate_gradient(self, hvp_function, b, cg_delta = 0.1, max_steps = 10):
+        x = torch.zeros_like(b)
+        r = b.clone()
+        p = b.clone()
+        i = 0
+        while i < max_steps:
+            AVP = hvp_function(p)
+            dot_old = r @ r
+            alpha = dot_old / (p @ AVP)
+            x = x + alpha * p
+            r = r - alpha * AVP
+            if r.norm() <= cg_delta:
+                return x
+            beta = (r @ r) / dot_old
+            p = r + beta * p
+            i += 1
+        return x
+
     def update_agent(self, episodes):
         states = torch.cat([r.states for r in episodes], dim=0)
         actions = torch.cat([r.actions for r in episodes], dim=0).flatten()
@@ -63,24 +81,7 @@ class TRPO():
         def HVP(v):
             return self.calculate_grad(d_kl @ v, parameters, retain_graph=True)
 
-        def conjugate_gradient(A, b, delta=0.1):
-            x = torch.zeros_like(b)
-            r = b.clone()
-            p = b.clone()
-            i = 0
-            while True:
-                AVP = A(p)
-                dot_old = r @ r
-                alpha = dot_old / (p @ AVP)
-                x = x + alpha * p
-                r = r - alpha * AVP
-                if r.norm() <= delta:
-                    return x
-                beta = (r @ r) / dot_old
-                p = r + beta * p
-                i += 1
-
-        search_dir = conjugate_gradient(HVP, g)
+        search_dir = self.conjugate_gradient(HVP, g)
         max_length = torch.sqrt(2 * self.delta / (search_dir @ HVP(search_dir)))
         max_step = max_length * search_dir
 
@@ -151,7 +152,7 @@ class TRPO():
 
             mean_total_rewards.append(mtr)
 
-            if epoch % 5 == 4:
+            if epoch == epoch:
                 torch.save(self.actor.model.state_dict(), './models/actor' + str(epoch) + '.pt')
                 torch.save(self.critic.model.state_dict(), './models/critic' + str(epoch) + '.pt')
                 with open('./models/rewards' + str(epoch) + '.txt', 'w+') as fp:
@@ -163,10 +164,10 @@ class TRPO():
 
 if __name__ == "__main__":
     env = gym.make('HumanoidPyBulletEnv-v0')
-    env.render()
+    #env.render()
     env.reset()
-    actor = Actor()
-    critic = Critic()
-    delta = 0.01
+    actor = Actor(44, 17)
+    critic = Critic(44, 1)
+    delta = 0.07
     trpo = TRPO(env=env, actor=actor, critic=critic, delta=delta)
-    trpo.train(epochs=50,num_of_episodes=200,render_frequency=100)
+    trpo.train(epochs=10,num_of_episodes=2048,render_frequency=100)
