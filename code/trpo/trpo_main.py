@@ -3,19 +3,106 @@ import pybulletgym
 import time
 import torch
 from actor import Actor
+from critic import Critic
 from collections import namedtuple
 import numpy as np
 import matplotlib.pyplot as plt
+import pickle
 
 Episode = namedtuple('Episode', ['states', 'actions', 'rewards', 'next_states', ])
 
 
 class TRPO():
-    def __init__(self, env):
-        self.actor = Actor(0.01)
+    def __init__(self, env, actor, critic, delta):
+        self.actor = actor
+        self.critic = critic
+        self.delta = delta
         self.env = env
 
-    def train(self, epochs = 10, num_of_episodes = 10, render_frequency = None):
+    def estimate_advantages(self, states, last_state, rewards):
+        values = self.critic.model(states)
+        last_value = self.critic.model(last_state.unsqueeze(0))
+        next_values = torch.zeros_like(rewards)
+        for i in reversed(range(rewards.shape[0])):
+            last_value = next_values[i] = rewards[i] + 0.99 * last_value
+        advantages = next_values - values
+        return advantages
+
+    def surrogate_loss(self, new_probs, old_probs, advantages):
+        return (new_probs / old_probs * advantages).mean()
+
+    def kl_divergence(self, p, q):
+        p = p.detach()
+        return (p * (p.log() - q.log())).sum(-1).mean()
+
+    def calculate_grad(self, y, x, retain_graph=False, create_graph=False):
+        if create_graph:
+            retain_graph = True
+        g = torch.autograd.grad(y, x, retain_graph=retain_graph, create_graph=create_graph)
+        g = torch.cat([t.view(-1) for t in g])
+        return g
+
+    def update_agent(self, episodes):
+        states = torch.cat([r.states for r in episodes], dim=0)
+        actions = torch.cat([r.actions for r in episodes], dim=0).flatten()
+        advantages = [self.estimate_advantages(states, next_states[-1], rewards) for states, _, rewards, next_states in
+                      episodes]
+        advantages = torch.cat(advantages, dim=0).flatten()
+        # Normalize advantages to reduce skewness and improve convergence
+        advantages = (advantages - advantages.mean()) / advantages.std()
+        self.critic.update_critic(advantages)
+        distribution = self.actor.model.forward(states)
+        distribution = torch.distributions.utils.clamp_probs(distribution)
+        probabilities = distribution[range(distribution.shape[0]), actions]
+        L = self.surrogate_loss(probabilities, probabilities.detach(), advantages)
+        KL = self.kl_divergence(distribution, distribution)
+        parameters = list(self.actor.model.parameters())
+        g = self.calculate_grad(L, parameters, retain_graph=True)
+        d_kl = self.calculate_grad(KL, parameters, create_graph=True)
+
+        def HVP(v):
+            return self.calculate_grad(d_kl @ v, parameters, retain_graph=True)
+
+        def conjugate_gradient(A, b, delta=0.1):
+            x = torch.zeros_like(b)
+            r = b.clone()
+            p = b.clone()
+            i = 0
+            while True:
+                AVP = A(p)
+                dot_old = r @ r
+                alpha = dot_old / (p @ AVP)
+                x = x + alpha * p
+                r = r - alpha * AVP
+                if r.norm() <= delta:
+                    return x
+                beta = (r @ r) / dot_old
+                p = r + beta * p
+                i += 1
+
+        search_dir = conjugate_gradient(HVP, g)
+        max_length = torch.sqrt(2 * self.delta / (search_dir @ HVP(search_dir)))
+        max_step = max_length * search_dir
+
+        def criterion(step):
+            self.actor.upgrade_parameters(step)
+            with torch.no_grad():
+                distribution_new = self.actor.model.forward(states)
+                distribution_new = torch.distributions.utils.clamp_probs(distribution_new)
+                probabilities_new = distribution_new[range(distribution_new.shape[0]), actions]
+                L_new = self.surrogate_loss(probabilities_new, probabilities, advantages)
+                KL_new = self.kl_divergence(distribution, distribution_new)
+            L_improvement = L_new - L
+            if L_improvement > 0 and KL_new <= self.delta:
+                return True
+            self.actor.upgrade_parameters(-step)
+            return False
+
+        i = 0
+        while not criterion((0.9 ** i) * max_step) and i < 10:
+            i += 1
+
+    def train(self, epochs, num_of_episodes, render_frequency = None):
         mean_total_rewards = []
         global_episode = 0
 
@@ -58,11 +145,17 @@ class TRPO():
                 episode_total_rewards.append(rewards.sum().item())
                 global_episode += 1
 
-            self.actor.update_actor(episodes)
+            self.update_agent(episodes)
             mtr = np.mean(episode_total_rewards)
             print(f'E: {epoch}.\tMean total reward across {num_of_episodes} episodes: {mtr}')
 
             mean_total_rewards.append(mtr)
+
+            if epoch % 5 == 4:
+                torch.save(self.actor.model.state_dict(), './models/actor' + str(epoch) + '.pt')
+                torch.save(self.critic.model.state_dict(), './models/critic' + str(epoch) + '.pt')
+                with open('./models/rewards' + str(epoch) + '.txt', 'w+') as fp:
+                    fp.write(str(mean_total_rewards))
 
         plt.plot(mean_total_rewards)
         plt.show()
@@ -72,21 +165,8 @@ if __name__ == "__main__":
     env = gym.make('HumanoidPyBulletEnv-v0')
     env.render()
     env.reset()
-    trpo = TRPO(env)
-    trpo.train(epochs=100,num_of_episodes=25,render_frequency=100)
-
-"""
-env = gym.make('HumanoidPyBulletEnv-v0')
-env.render()
-obs = env.reset()
-
-while True:
-    action = env.action_space.sample()  # your agent here (this takes random actions)
-    observation, reward, is_done, info = env.step(action)
-    time.sleep(0.05)
-
-    if is_done is True:
-        env.reset()
-
-    env.render()
-"""
+    actor = Actor()
+    critic = Critic()
+    delta = 0.01
+    trpo = TRPO(env=env, actor=actor, critic=critic, delta=delta)
+    trpo.train(epochs=50,num_of_episodes=200,render_frequency=100)

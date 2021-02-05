@@ -4,16 +4,15 @@ import torch.nn.functional as F
 from torch.optim import Adam
 
 
-HIDDEN_LAYER_SIZE = 64
 INPUT_SIZE = 44 # state size
 OUTPUT_LAYER_SIZE = 1 # value of the state
 
 class CriticModel(nn.Module):
     def __init__(self):
         super().__init__()
-        self.fc1 = nn.Linear(INPUT_SIZE, HIDDEN_LAYER_SIZE)
-        self.fc2 = nn.Linear(HIDDEN_LAYER_SIZE, HIDDEN_LAYER_SIZE)
-        self.fc3 = nn.Linear(HIDDEN_LAYER_SIZE, OUTPUT_LAYER_SIZE)
+        self.fc1 = nn.Linear(INPUT_SIZE, 400)
+        self.fc2 = nn.Linear(400, 300)
+        self.fc3 = nn.Linear(300, OUTPUT_LAYER_SIZE)
 
     def forward(self, x):
         x = F.relu(self.fc1(x))
