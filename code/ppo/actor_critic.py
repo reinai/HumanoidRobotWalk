@@ -22,6 +22,12 @@ class ActorCritic(nn.Module):
         self.third_layer = nn.Linear(64, output_dimensions)
 
     def forward(self, observation):
+        """
+        Forward propagation through the network with observation/state representation as input.
+
+        :param observation: observation/state that is passed in as input
+        :return:
+        """
         # We use Box array which deals with real valued quantities
         observation = torch.tensor(observation, dtype=torch.float32)
 
