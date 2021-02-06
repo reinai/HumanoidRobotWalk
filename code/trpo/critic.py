@@ -22,8 +22,8 @@ class CriticModel(nn.Module):
 
 
 class Critic():
-    def __init__(self):
-        self.model = CriticModel()
+    def __init__(self, input_dim, output_dim):
+        self.model = CriticModel(input_dim, output_dim)
         self.optimizer = Adam(self.model.parameters(), lr=0.0003)
 
     def update_critic(self, advantages):

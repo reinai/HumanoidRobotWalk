@@ -170,4 +170,4 @@ if __name__ == "__main__":
     critic = Critic(44, 1)
     delta = 0.07
     trpo = TRPO(env=env, actor=actor, critic=critic, delta=delta)
-    trpo.train(epochs=10,num_of_episodes=2048,render_frequency=100)
+    trpo.train(epochs=1000,num_of_episodes=2048,render_frequency=100)

@@ -22,8 +22,8 @@ class ActorModel(nn.Module):
 
 
 class Actor():
-    def __init__(self):
-        self.model = ActorModel()
+    def __init__(self, input_dim, output_dim):
+        self.model = ActorModel(input_dim, output_dim)
 
     def get_action(self, state):
         state = torch.tensor(state).float().unsqueeze(0)
