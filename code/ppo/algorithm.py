@@ -129,7 +129,8 @@ class ProximalPolicyOptimization(object):
         Collects set of trajectories D_k = {tau_i} by running policy PI_k = PI(theta_k) in the environment
         One rollout represents one trajectory and set of trajectories represents one batch.
 
-        :return:
+        :return: experienced observations, actions, logarithmic probabilities, rewards to go and lengths of episodes in
+                 a batch
         """
         batch_data = BatchData()
 
@@ -213,9 +214,10 @@ class ProximalPolicyOptimization(object):
 
     def train(self, K):
         """
+        Trains the Proximal Policy Optimization model.
 
         :param K: total number of time-steps
-        :return:
+        :return: None, but saves the model
         """
         # for k = 0, 1, 2, ... K do
         k = 0
@@ -250,6 +252,15 @@ class ProximalPolicyOptimization(object):
                 pi_ratios = self.calculate_pi_theta_ratio(pi_theta, batch_logarithmic_probabilities)
 
                 first_term = pi_ratios * advantage_function_k
+
+                """
+                A new objective function is constructed to clip the estimated advantage function if the new policy is 
+                far away from the old policy.
+                If the probability ratio between the new policy and the old policy falls outside the range 
+                (1 — self.clip) and (1 + self.clip), the advantage function will be clipped. self.clip is set to 0.2 for 
+                the experiments in the PPO paper.
+                Effectively, this discourages large policy change if it is outside our comfortable zone.
+                """
                 second_term = torch.clamp(pi_ratios, 1 - self.clip, 1 + self.clip) * advantage_function_k
 
                 # Adam minimizes the loss (thus the negative sign), take mean to get single loss as a float
@@ -271,3 +282,4 @@ if __name__ == "__main__":
     env = gym.make('HumanoidPyBulletEnv-v0')
     model = ProximalPolicyOptimization(env)
     model.train(10000)
+    

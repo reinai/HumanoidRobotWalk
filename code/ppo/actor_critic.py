@@ -27,7 +27,7 @@ class ActorCritic(nn.Module):
         Forward propagation through the network with observation/state representation as input.
 
         :param observation: observation/state that is passed in as input
-        :return:
+        :return: action or value
         """
         warnings.filterwarnings("ignore")
 
