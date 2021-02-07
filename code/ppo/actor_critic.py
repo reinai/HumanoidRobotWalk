@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import warnings
 
 
 class ActorCritic(nn.Module):
@@ -28,6 +29,8 @@ class ActorCritic(nn.Module):
         :param observation: observation/state that is passed in as input
         :return:
         """
+        warnings.filterwarnings("ignore")
+
         # We use Box array which deals with real valued quantities
         observation = torch.tensor(observation, dtype=torch.float32)
 

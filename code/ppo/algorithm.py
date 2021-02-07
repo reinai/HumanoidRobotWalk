@@ -1,8 +1,10 @@
 import torch
 from actor_critic import ActorCritic
 from torch.optim import Adam as AdamOptimizer
-from .anemic_domain_models import BatchData
+from anemic_domain_models import BatchData
 from torch.distributions import MultivariateNormal
+import numpy as np
+import torch.nn as nn
 
 
 class ProximalPolicyOptimization(object):
@@ -54,11 +56,14 @@ class ProximalPolicyOptimization(object):
         self.seed = None  # sets seed for ProximalPolicyOptimization class which can lead to different results
 
         if self.seed is not None:
-            assert(type(self.seed) == int)
+            assert (type(self.seed) == int)
 
             torch.manual_seed(self.seed)
 
-        self.deterministic = False  # if we are testing, we will set deterministic to True, so that action will be mean
+        # normalize advantage function (decrease variance, faster convergence and more stable model)
+        self.normalize = True
+
+        self.clip = 0.2  # generally recommended in the literature
 
     def get_action(self, observation):
         """
@@ -168,7 +173,43 @@ class ProximalPolicyOptimization(object):
         batch_logarithmic_probabilities = torch.tensor(batch_data.logarithmic_probabilities, dtype=torch.float32)
         batch_rewards_to_go = self.rewards_to_go(batch_rewards=batch_data.rewards)
 
-        return batch_observations, batch_actions, batch_logarithmic_probabilities, batch_rewards_to_go
+        return \
+            batch_observations, batch_actions, batch_logarithmic_probabilities, \
+            batch_rewards_to_go, batch_data.lengths_of_episodes
+
+    def calculate_value_function(self, batch_observations, batch_actions):
+        """
+        Estimate the value function for each observation in a batch of observations and logarithmic probabilities of the
+        actions taken/executed in that batch with the most recent iteration of the actor network.
+
+        :param batch_observations: shape = (NUMBER_OF_TIME_STEPS, OBSERVATION_DIMENSION)
+        :param batch_actions: shape = (NUMBER_OF_TIME_STEPS, ACTION_DIMENSION)
+        :return: function values for every observation and logarithmic probabilities for every action in recent iter
+        """
+        V = self.critic.forward(batch_observations)
+
+        V = V.squeeze()  # (TIME_STEPS_PER_BATCH, 1) => (TIME_STEPS_PER_BATCH)
+
+        mu = self.actor.forward(batch_observations)
+
+        multivariate_gaussian_distribution = MultivariateNormal(loc=mu, covariance_matrix=self.covariance_matrix)
+
+        logarithmic_probability = multivariate_gaussian_distribution.log_prob(value=batch_actions)
+
+        return V, logarithmic_probability
+
+    def normalize_advantage_function(self, advantage_function, epsilon):
+        """
+        Standardization of advantage function with epsilon addition.
+
+        :param advantage_function: advantage function for normalization
+        :param epsilon: small number
+        :return: normalized advantage function
+        """
+        return (advantage_function - advantage_function.mean()) / (advantage_function.std() + epsilon)
+
+    def calculate_pi_theta_ratio(self, pi_theta, pi_theta_k):
+        return torch.exp(pi_theta - pi_theta_k)
 
     def train(self, K):
         """
@@ -178,6 +219,55 @@ class ProximalPolicyOptimization(object):
         """
         # for k = 0, 1, 2, ... K do
         k = 0
+        i = 0  # iterations
 
         while k < K:
-            pass
+            batch_observations, batch_actions, batch_logarithmic_probabilities, batch_rewards_to_go, \
+            lengths_of_episodes = self.collect_trajectories()
+
+            k += np.sum(lengths_of_episodes)
+
+            i += 1
+
+            V, _ = self.calculate_value_function(batch_observations, batch_actions)
+            advantage_function_k = batch_rewards_to_go - V.detach()
+
+            if self.normalize:
+                advantage_function_k = self.normalize_advantage_function(advantage_function=advantage_function_k,
+                                                                         epsilon=1e-10)
+
+            # update networks for some number of epochs
+            for _ in range(self.number_of_network_updates_per_iteration):
+                """
+                Actor network (theta parameters):
+                    Update the policy by maximizing the PPO-clip objective via stochastic gradient ascent with Adam.
+                Critic network (phi parameters):
+                    Fit value function by regression on mean-squared error via gradient descent with Adam.
+                """
+                V, pi_theta = self.calculate_value_function(batch_observations=batch_observations,
+                                                            batch_actions=batch_actions)
+
+                pi_ratios = self.calculate_pi_theta_ratio(pi_theta, batch_logarithmic_probabilities)
+
+                first_term = pi_ratios * advantage_function_k
+                second_term = torch.clamp(pi_ratios, 1 - self.clip, 1 + self.clip) * advantage_function_k
+
+                # Adam minimizes the loss (thus the negative sign), take mean to get single loss as a float
+                ppo_clip_objective = (-torch.min(first_term, second_term)).mean()  # maximization
+                self.actor_optimizer.zero_grad()
+                ppo_clip_objective.backward(retain_graph=True)  # https://stackoverflow.com/questions/46774641/what-does-the-parameter-retain-graph-mean-in-the-variables-backward-method
+                self.actor_optimizer.step()
+
+                regression_mean_squared_error = nn.MSELoss()(V, batch_rewards_to_go)
+                self.critic_optimizer.zero_grad()
+                regression_mean_squared_error.backward()
+                self.critic_optimizer.step()
+
+
+if __name__ == "__main__":
+    import gym
+    import pybulletgym
+
+    env = gym.make('HumanoidPyBulletEnv-v0')
+    model = ProximalPolicyOptimization(env)
+    model.train(10000)
