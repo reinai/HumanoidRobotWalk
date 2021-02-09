@@ -13,19 +13,41 @@ Episode = namedtuple('Episode', ['states', 'actions', 'rewards', 'next_states', 
 
 
 class TRPO():
-    def __init__(self, env, actor, critic, delta):
+    def __init__(self, env, actor, critic, delta, gamma, cg_delta, alpha, backtrack_steps_num, gae_lambda):
         self.actor = actor
         self.critic = critic
         self.delta = delta
         self.env = env
+        self.gamma = gamma
+        self.cg_delta = cg_delta
+        self.alpha = alpha
+        self.backtrack_steps_num = backtrack_steps_num
+        self.gae_lambda = gae_lambda
 
+    """
     def estimate_advantages(self, states, last_state, rewards):
-        values = self.critic.model(states)
-        last_value = self.critic.model(last_state.unsqueeze(0))
+        values = self.critic.model.forward(states)
+        last_value = self.critic.model.forward(last_state.unsqueeze(0))
+        last_value = last_value.detach()
         next_values = torch.zeros_like(rewards)
         for i in reversed(range(rewards.shape[0])):
-            last_value = next_values[i] = rewards[i] + 0.99 * last_value
-        advantages = next_values - values
+            last_value = next_values[i] = rewards[i] + self.gamma * last_value
+        advantages = next_values - values.detach()
+        return advantages
+    """
+
+    def estimate_advantages(self, states, last_state, rewards):
+        values = self.critic.model.forward(states)
+        returns = torch.zeros_like(rewards)
+        gae = 0
+        for i in reversed(range(rewards.shape[0])):
+            if i == rewards.shape[0] - 1:
+                delta = rewards[i] - values[i]
+            else:
+                delta = rewards[i] + self.gamma * values[i+1] - values[i]
+            gae = delta + self.gamma * self.gae_lambda * gae
+            returns[i] = gae + values[i]
+        advantages = returns - values
         return advantages
 
     def surrogate_loss(self, new_probs, old_probs, advantages):
@@ -42,23 +64,22 @@ class TRPO():
         g = torch.cat([t.view(-1) for t in g])
         return g
 
-    def conjugate_gradient(self, hvp_function, b, cg_delta = 0.1, max_steps = 10):
+    def conjugate_gradient(self, hvp_function, b):
         x = torch.zeros_like(b)
         r = b.clone()
         p = b.clone()
         i = 0
-        while i < max_steps:
+        while True:
             AVP = hvp_function(p)
             dot_old = r @ r
             alpha = dot_old / (p @ AVP)
             x = x + alpha * p
             r = r - alpha * AVP
-            if r.norm() <= cg_delta:
+            if r.norm() <= self.cg_delta:
                 return x
             beta = (r @ r) / dot_old
             p = r + beta * p
             i += 1
-        return x
 
     def update_agent(self, episodes):
         states = torch.cat([r.states for r in episodes], dim=0)
@@ -100,7 +121,7 @@ class TRPO():
             return False
 
         i = 0
-        while not criterion((0.9 ** i) * max_step) and i < 10:
+        while not criterion((self.alpha ** i) * max_step) and i < self.backtrack_steps_num:
             i += 1
 
     def train(self, epochs, num_of_episodes, render_frequency = None):
@@ -152,10 +173,10 @@ class TRPO():
 
             mean_total_rewards.append(mtr)
 
-            if epoch == epoch:
-                torch.save(self.actor.model.state_dict(), './models/actor' + str(epoch) + '.pt')
-                torch.save(self.critic.model.state_dict(), './models/critic' + str(epoch) + '.pt')
-                with open('./models/rewards' + str(epoch) + '.txt', 'w+') as fp:
+            if epoch % 10 == 9:
+                torch.save(self.actor.model.state_dict(), './models/actor' + str(epoch + 1) + '.pt')
+                torch.save(self.critic.model.state_dict(), './models/critic' + str(epoch + 1) + '.pt')
+                with open('./models/rewards' + str(epoch + 1) + '.txt', 'w+') as fp:
                     fp.write(str(mean_total_rewards))
 
         plt.plot(mean_total_rewards)
@@ -168,6 +189,13 @@ if __name__ == "__main__":
     env.reset()
     actor = Actor(44, 17)
     critic = Critic(44, 1)
-    delta = 0.07
-    trpo = TRPO(env=env, actor=actor, critic=critic, delta=delta)
-    trpo.train(epochs=1000,num_of_episodes=2048,render_frequency=100)
+    trpo = TRPO(env=env,
+                actor=actor,
+                critic=critic,
+                delta=0.003,
+                gamma=0.995,
+                cg_delta=0.1,
+                alpha=0.9,
+                backtrack_steps_num=10,
+                gae_lambda=0.98)
+    trpo.train(epochs=1000,num_of_episodes=1000,render_frequency=50)
