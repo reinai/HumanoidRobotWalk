@@ -28,7 +28,7 @@ class CriticModel(nn.Module):
 class Critic():
     def __init__(self, input_dim, output_dim):
         self.model = CriticModel(input_dim, output_dim)
-        self.optimizer = Adam(self.model.parameters(), lr=0.005)
+        self.optimizer = Adam(self.model.parameters(), lr=1e-2 / np.sqrt(self.model.hid2_size))
 
     def update_critic(self, advantages):
         loss = .5 * (advantages ** 2).mean()  # MSE
