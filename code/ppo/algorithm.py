@@ -5,10 +5,11 @@ from anemic_domain_models import BatchData
 from torch.distributions import MultivariateNormal
 import numpy as np
 import torch.nn as nn
+from model_statistics import ModelStatistics
 
 
 class ProximalPolicyOptimization(object):
-    def __init__(self, environment, save_frequency, save_model_path, **hyper_parameters):
+    def __init__(self, environment, save_frequency, save_model_path, logging_path, **hyper_parameters):
         """
         Implementation of PPO algorithm based on: https://spinningup.openai.com/en/latest/algorithms/ppo.html#pseudocode
 
@@ -38,6 +39,9 @@ class ProximalPolicyOptimization(object):
 
         self.save_frequency = save_frequency
         self.save_model_path = save_model_path
+
+        self.model_statistics = ModelStatistics()
+        self.logging_path = logging_path
 
     def __init__hyper_parameters(self, hyper_parameters):
         """
@@ -182,6 +186,11 @@ class ProximalPolicyOptimization(object):
         batch_logarithmic_probabilities = torch.tensor(batch_data.logarithmic_probabilities, dtype=torch.float32)
         batch_rewards_to_go = self.rewards_to_go(batch_rewards=batch_data.rewards)
 
+        # Logging
+        self.model_statistics.batch_episodic_returns = batch_data.rewards
+        self.model_statistics.batch_lengths_of_episodes = batch_data.lengths_of_episodes
+        #
+
         return \
             batch_observations, batch_actions, batch_logarithmic_probabilities, \
             batch_rewards_to_go, batch_data.lengths_of_episodes
@@ -239,6 +248,11 @@ class ProximalPolicyOptimization(object):
 
             i += 1
 
+            # Logging
+            self.model_statistics.elapsed_time_steps = k
+            self.model_statistics.elapsed_iterations = i
+            #
+
             V, _ = self.calculate_value_function(batch_observations, batch_actions)
             advantage_function_k = batch_rewards_to_go - V.detach()
 
@@ -282,11 +296,13 @@ class ProximalPolicyOptimization(object):
                 regression_mean_squared_error.backward()
                 self.critic_optimizer.step()
 
+                self.model_statistics.actor_losses.append(ppo_clip_objective.detach())
+
+            log = self.model_statistics.__str__()
+            f = open(self.logging_path + "/log.txt", "a")
+            f.write(log)
+            f.close()
+
             if i % self.save_frequency == 0:
                 torch.save(self.actor.state_dict(), self.save_model_path + "/ppo_actor.pth")
                 torch.save(self.critic.state_dict(), self.save_model_path + "/ppo_critic.pth")
-
-import gym
-env = gym.make('Pendulum-v0')
-model = ProximalPolicyOptimization(env, save_frequency=1, save_model_path="../trained_models/ppo")
-model.train(10000)

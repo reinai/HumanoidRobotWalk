@@ -1,9 +1,11 @@
 from algorithm import ProximalPolicyOptimization
 import gym
 import pybulletgym
+from os.path import exists
 
 
-def train_model(environment, hyper_parameters, total_number_of_time_steps, save_frequency, save_model_path):
+def train_model(environment, hyper_parameters, total_number_of_time_steps, save_frequency, save_model_path,
+                actor_model, critic_model, logging_path):
     """
     Function for training the model for a specified gym environment.
 
@@ -12,12 +14,18 @@ def train_model(environment, hyper_parameters, total_number_of_time_steps, save_
     :param total_number_of_time_steps: total number of time-steps
     :param save_frequency: how frequent to save the model
     :param save_model_path: file path where we will save the model
+    :param actor_model: actor model file path (if non-existing, then new model is trained)
+    :param critic_model: critic model file path (if non-existing, then new model is trained)
+    :param logging_path: where to log training information
     :return: None, saves model at specified location
     """
     print("Training the model...\n")
 
+    if not exists(path=actor_model) and not exists(path=critic_model):
+        print("Training model for the first time (actor and critic models don't exist).")
+
     model = ProximalPolicyOptimization(environment=environment, save_frequency=save_frequency,
-                                       save_model_path=save_model_path, **hyper_parameters)
+                                       save_model_path=save_model_path, logging_path=logging_path, **hyper_parameters)
 
     model.train(K=total_number_of_time_steps)
 
@@ -38,4 +46,6 @@ if __name__ == "__main__":
     }
 
     train_model(environment=env, hyper_parameters=model_hyper_parameters, total_number_of_time_steps=1e7,
-                save_frequency=10, save_model_path="../trained_models/ppo")
+                save_frequency=5, save_model_path="../trained_models/ppo",
+                actor_model="../trained_models/ppo/ppo_actor.pth", critic_model="../trained_models/ppo/ppo_critic.pth",
+                logging_path="../plots")
