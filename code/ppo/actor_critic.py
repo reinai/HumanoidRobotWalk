@@ -17,9 +17,9 @@ class ActorCritic(nn.Module):
         """
         super(ActorCritic, self).__init__()
 
-        # 64 is chosen based on Stanford's recommendation, experimentally backed up
-        self.first_layer = nn.Linear(input_dimensions, 64)
-        self.second_layer = nn.Linear(64, 64)
+        # 128 is chosen based on Stanford's recommendation, experimentally backed up
+        self.first_layer = nn.Linear(input_dimensions, 128)
+        self.second_layer = nn.Linear(128, 64)
         self.third_layer = nn.Linear(64, output_dimensions)
 
     def forward(self, observation):

@@ -8,11 +8,13 @@ import torch.nn as nn
 
 
 class ProximalPolicyOptimization(object):
-    def __init__(self, environment, **hyper_parameters):
+    def __init__(self, environment, save_frequency, save_model_path, **hyper_parameters):
         """
         Implementation of PPO algorithm based on: https://spinningup.openai.com/en/latest/algorithms/ppo.html#pseudocode
 
         :param environment: environment of interest, in our case: HumanoidPyBulletEnv-v0
+        :param save_frequency: how frequent to save the model
+        :param save_model_path: file path where we will save the model
         :param hyper_parameters: PPO algorithm hyper-parameters
         """
         self.__init__hyper_parameters(hyper_parameters=hyper_parameters)
@@ -33,6 +35,9 @@ class ProximalPolicyOptimization(object):
         # initialize covariance matrix for representing Diagonal Gaussian Policy
         self.covariance_matrix = torch.diag(input=torch.full(size=(self.action_dimensions,), fill_value=0.5),
                                             diagonal=0)
+
+        self.save_frequency = save_frequency
+        self.save_model_path = save_model_path
 
     def __init__hyper_parameters(self, hyper_parameters):
         """
@@ -63,7 +68,10 @@ class ProximalPolicyOptimization(object):
         # normalize advantage function (decrease variance, faster convergence and more stable model)
         self.normalize = True
 
-        self.clip = 0.2  # generally recommended in the literature
+        self.clip_range = 0.2  # generally recommended in the literature
+
+        for hyper_param, value in hyper_parameters.items():
+            exec("self." + hyper_param + " = " + str(value))
 
     def get_action(self, observation):
         """
@@ -257,11 +265,11 @@ class ProximalPolicyOptimization(object):
                 A new objective function is constructed to clip the estimated advantage function if the new policy is 
                 far away from the old policy.
                 If the probability ratio between the new policy and the old policy falls outside the range 
-                (1 — self.clip) and (1 + self.clip), the advantage function will be clipped. self.clip is set to 0.2 for 
-                the experiments in the PPO paper.
+                (1 — self.clip_range) and (1 + self.clip_range), the advantage function will be clipped. self.clip_range 
+                is set to 0.2 for the experiments in the PPO paper.
                 Effectively, this discourages large policy change if it is outside our comfortable zone.
                 """
-                second_term = torch.clamp(pi_ratios, 1 - self.clip, 1 + self.clip) * advantage_function_k
+                second_term = torch.clamp(pi_ratios, 1 - self.clip_range, 1 + self.clip_range) * advantage_function_k
 
                 # Adam minimizes the loss (thus the negative sign), take mean to get single loss as a float
                 ppo_clip_objective = (-torch.min(first_term, second_term)).mean()  # maximization
@@ -274,12 +282,11 @@ class ProximalPolicyOptimization(object):
                 regression_mean_squared_error.backward()
                 self.critic_optimizer.step()
 
+            if i % self.save_frequency == 0:
+                torch.save(self.actor.state_dict(), self.save_model_path + "/ppo_actor.pth")
+                torch.save(self.critic.state_dict(), self.save_model_path + "/ppo_critic.pth")
 
-if __name__ == "__main__":
-    import gym
-    import pybulletgym
-
-    env = gym.make('HumanoidPyBulletEnv-v0')
-    model = ProximalPolicyOptimization(env)
-    model.train(10000)
-    
+import gym
+env = gym.make('Pendulum-v0')
+model = ProximalPolicyOptimization(env, save_frequency=1, save_model_path="../trained_models/ppo")
+model.train(10000)

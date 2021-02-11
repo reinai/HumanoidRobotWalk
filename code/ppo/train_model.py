@@ -1,0 +1,41 @@
+from algorithm import ProximalPolicyOptimization
+import gym
+import pybulletgym
+
+
+def train_model(environment, hyper_parameters, total_number_of_time_steps, save_frequency, save_model_path):
+    """
+    Function for training the model for a specified gym environment.
+
+    :param environment:  gym environment of interest
+    :param hyper_parameters: hyper-parameters for model training
+    :param total_number_of_time_steps: total number of time-steps
+    :param save_frequency: how frequent to save the model
+    :param save_model_path: file path where we will save the model
+    :return: None, saves model at specified location
+    """
+    print("Training the model...\n")
+
+    model = ProximalPolicyOptimization(environment=environment, save_frequency=save_frequency,
+                                       save_model_path=save_model_path, **hyper_parameters)
+
+    model.train(K=total_number_of_time_steps)
+
+
+if __name__ == "__main__":
+    env = gym.make('HumanoidPyBulletEnv-v0')
+
+    model_hyper_parameters = {
+        "learning_rate": 2.5e-4,
+        "number_of_time_steps_per_batch": 4800,
+        "maximum_number_of_time_steps_per_episode": 1600,
+        "number_of_network_updates_per_iteration": 20,
+        "discounting_factor": 0.99,
+        "render": False,
+        "seed": None,
+        "normalize": True,
+        "clip_range": 0.2
+    }
+
+    train_model(environment=env, hyper_parameters=model_hyper_parameters, total_number_of_time_steps=1e7,
+                save_frequency=10, save_model_path="../trained_models/ppo")
