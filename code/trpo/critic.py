@@ -7,7 +7,7 @@ import numpy as np
 
 class CriticModel(nn.Module):
     def __init__(self, input_dim, output_dim):
-        super().__init__()
+        super(CriticModel, self).__init__()
         self.hid1_size = 10 * input_dim
         self.hid3_size = 5
         self.hid2_size = int(np.sqrt(self.hid1_size * self.hid3_size))
@@ -18,6 +18,7 @@ class CriticModel(nn.Module):
         self.fc4 = nn.Linear(self.hid3_size, output_dim)
 
     def forward(self, x):
+        x = torch.tensor(x, dtype=torch.float32)
         x = F.tanh(self.fc1(x))
         x = F.tanh(self.fc2(x))
         x = F.tanh(self.fc3(x))

@@ -8,8 +8,9 @@ from collections import namedtuple
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+from torch.distributions import MultivariateNormal
 
-Episode = namedtuple('Episode', ['states', 'actions', 'rewards', 'next_states', ])
+Episode = namedtuple('Episode', ['states', 'actions', 'rewards', 'next_states', 'probabilities'])
 
 
 class TRPO():
@@ -57,12 +58,11 @@ class TRPO():
 
     def surrogate_loss(self, new_probs, old_probs, advantages):
         """ Defining surrogate loss"""
-        return (new_probs / old_probs * advantages).mean()
+        return (torch.exp(new_probs - old_probs) * advantages).mean()
 
     def kl_divergence(self, p, q):
         """ Defining KL divergence """
-        p = p.detach()
-        return (p * (p.log() - q.log())).sum(-1).mean()
+        return torch.square((p - q)).sum().mean()
 
     def compute_grad(self, y, x, retain_graph=False, create_graph=False):
         """ Computing gradient dy/dx"""
@@ -72,13 +72,13 @@ class TRPO():
         g = torch.cat([t.view(-1) for t in g])
         return g
 
-    def conjugate_gradient(self, hvp_function, b):
+    def conjugate_gradient(self, hvp_function, b, max_iterations = 10):
         """ Conjugate gradient algorithm to compute H^-1*b"""
         x = torch.zeros_like(b)
         r = b.clone()
         p = b.clone()
         i = 0
-        while True:
+        while i < max_iterations:
             AVP = hvp_function(p)
             dot_old = r @ r
             alpha = dot_old / (p @ AVP)
@@ -89,18 +89,27 @@ class TRPO():
             beta = (r @ r) / dot_old
             p = r + beta * p
             i += 1
+        return x
 
     def get_advantage_estimation(self, episodes):
         """ Get advantage estimation that is in right form and normalized """
-        advantages = [self.estimate_advantages(states, rewards) for states, _, rewards, _ in episodes]
+        advantages = [self.estimate_advantages(states, rewards) for states, _, rewards, _, _ in episodes]
         advantages = torch.cat(advantages, dim=0).flatten()
         return (advantages - advantages.mean()) / advantages.std()
+
+    def get_probability(self, actions, states):
+        mu = self.actor.model.forward(states)
+        multivariate_gaussian_distribution = MultivariateNormal(loc=mu, covariance_matrix=self.actor.covariance_matrix)
+        logarithmic_probability = multivariate_gaussian_distribution.log_prob(value=actions)
+        return logarithmic_probability
 
     def update_agent(self, episodes):
         """ Method to update agent that we train """
         #PART 1: get states and actions provided through parameter episodes
         states = torch.cat([r.states for r in episodes], dim=0)
-        actions = torch.cat([r.actions for r in episodes], dim=0).flatten()
+        next_states = torch.cat([r.next_states for r in episodes], dim=0)
+        actions = torch.cat([r.actions for r in episodes], dim=0)
+
         #PART 2: calculate advantages based on trajectories and normalize it
         advantages = self.get_advantage_estimation(episodes)
         #PART 3: update critic parameters based on advantage estimation
@@ -108,11 +117,14 @@ class TRPO():
             train_advantages = self.get_advantage_estimation(episodes)
             self.critic.update_critic(train_advantages)
         #PART 4: get distribution of the policy and define surrogate loss and kl divergence
+
+
+        probability = self.get_probability(actions, states)
         distribution = self.actor.model.forward(states)
-        distribution = torch.distributions.utils.clamp_probs(distribution)
-        probabilities = distribution[range(distribution.shape[0]), actions]
-        L = self.surrogate_loss(probabilities, probabilities.detach(), advantages)
-        KL = self.kl_divergence(distribution, distribution)
+
+
+        L = self.surrogate_loss(probability, probability.detach(), advantages)
+        KL = self.kl_divergence(distribution, distribution.detach())
         #PART 5: compute gradient for surrogate loss and kl divergence
         parameters = list(self.actor.model.parameters())
         g = self.compute_grad(L, parameters, retain_graph=True)
@@ -128,9 +140,8 @@ class TRPO():
             self.actor.upgrade_parameters(step)
             with torch.no_grad():
                 distribution_new = self.actor.model.forward(states)
-                distribution_new = torch.distributions.utils.clamp_probs(distribution_new)
-                probabilities_new = distribution_new[range(distribution_new.shape[0]), actions]
-                L_new = self.surrogate_loss(probabilities_new, probabilities, advantages)
+                probability_new = self.get_probability(actions, states)
+                L_new = self.surrogate_loss(probability_new, probability, advantages)
                 KL_new = self.kl_divergence(distribution, distribution_new)
             L_improvement = L_new - L
             if L_improvement > 0 and KL_new <= self.delta:
@@ -156,20 +167,19 @@ class TRPO():
                 while not done and episode_reward < max_reward_per_episode:
                     if render_frequency is not None and global_episode % render_frequency == 0:
                         self.env.render()
-                    with torch.no_grad():
-                        action = self.actor.get_action(state)
-                        a = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-                        a[action - 1] = 1
-                    next_state, reward, done, _ = self.env.step(a)
+                    action, probability = self.actor.get_action(state)
+                    curr_action = action.numpy()
+                    next_state, reward, done, _ = self.env.step(curr_action)
                     episode_reward += reward
-                    samples.append((state, action, reward, next_state))
+                    samples.append((state, action, reward, next_state, probability))
                     state = next_state
-                states, actions, rewards, next_states = zip(*samples)
+                states, actions, rewards, next_states, probabilities = zip(*samples)
                 states = torch.stack([torch.from_numpy(state) for state in states], dim=0).float()
                 next_states = torch.stack([torch.from_numpy(state) for state in next_states], dim=0).float()
-                actions = torch.as_tensor(actions).unsqueeze(1)
+                actions = torch.stack([torch.tensor(action) for action in actions], dim=0).float()
                 rewards = torch.as_tensor(rewards).unsqueeze(1)
-                episodes.append(Episode(states, actions, rewards, next_states))
+                probabilities = torch.tensor(probabilities, requires_grad = True).unsqueeze(1)
+                episodes.append(Episode(states, actions, rewards, next_states, probabilities))
                 episode_total_rewards.append(rewards.sum().item())
                 global_episode += 1
             self.update_agent(episodes)
@@ -203,4 +213,4 @@ if __name__ == "__main__":
                 backtrack_steps_num=10,
                 gae_lambda=0.98,
                 critic_epoch_num = 10)
-    trpo.train(epochs=1000,num_of_episodes=1000,render_frequency=50)
+    trpo.train(epochs=10,num_of_episodes=10,render_frequency=None)

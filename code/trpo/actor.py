@@ -1,13 +1,14 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.distributions import Categorical
+import warnings
+from torch.distributions import MultivariateNormal
 import numpy as np
 
 
 class ActorModel(nn.Module):
     def __init__(self, input_dim, output_dim):
-        super().__init__()
+        super(ActorModel, self).__init__()
         self.hid1_size = 10 * input_dim
         self.hid3_size = 10 * output_dim
         self.hid2_size = int(np.sqrt(self.hid1_size * self.hid3_size))
@@ -18,21 +19,26 @@ class ActorModel(nn.Module):
         self.fc4 = nn.Linear(self.hid3_size, output_dim)
 
     def forward(self, x):
+        warnings.filterwarnings("ignore")
+        x = torch.tensor(x, dtype=torch.float32)
         x = F.tanh(self.fc1(x))
         x = F.tanh(self.fc2(x))
         x = F.tanh(self.fc3(x))
         x = self.fc4(x)
-        return F.softmax(x, dim=1)
+        return x
 
 
 class Actor():
     def __init__(self, input_dim, output_dim):
         self.model = ActorModel(input_dim, output_dim)
+        self.covariance_matrix = torch.diag(input=torch.full(size=(output_dim,), fill_value=0.5), diagonal=0)
 
     def get_action(self, state):
-        state = torch.tensor(state).float().unsqueeze(0)
-        dist = Categorical(torch.distributions.utils.clamp_probs(self.model.forward(state)))
-        return dist.sample().item()
+        mu = self.model.forward(state)
+        multivariate_gaussian_distribution = MultivariateNormal(loc=mu, covariance_matrix=self.covariance_matrix)
+        action = multivariate_gaussian_distribution.sample()
+        log_probability = multivariate_gaussian_distribution.log_prob(value=action)
+        return action, log_probability
 
     def upgrade_parameters(self, grads):
         n = 0
