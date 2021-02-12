@@ -15,7 +15,9 @@ Episode = namedtuple('Episode', ['states', 'actions', 'rewards', 'next_states', 
 
 class TRPO():
     """ Main class that implements trpo algorithm to improve actor and critic neural networks """
-    def __init__(self, env, actor, critic, delta, gamma, cg_delta, alpha, backtrack_steps_num, gae_lambda, critic_epoch_num):
+
+    def __init__(self, env, actor, critic, delta, gamma, cg_delta, alpha, backtrack_steps_num, gae_lambda,
+                 critic_epoch_num):
         """
         Initialize the parameters of TRPO class
         Args:
@@ -41,8 +43,8 @@ class TRPO():
         self.gae_lambda = gae_lambda
         self.critic_epoch_num = critic_epoch_num
 
+    """
     def estimate_advantages(self, states, rewards):
-        """ Estimating advantage based on rewards and value of states obtained through critic"""
         values = self.critic.model.forward(states)
         returns = torch.zeros_like(rewards)
         gae = 0
@@ -55,6 +57,16 @@ class TRPO():
             returns[i] = gae + values[i]
         advantages = returns - values
         return advantages
+    """
+
+    def estimate_advantages(self, states, rewards):
+        values = self.critic.model.forward(states)
+        next_values = torch.zeros_like(rewards)
+        last_value = 0
+        for i in reversed(range(rewards.shape[0])):
+            last_value = next_values[i] = rewards[i] + self.gamma * last_value
+        advantages = next_values - values
+        return advantages
 
     def surrogate_loss(self, new_probs, old_probs, advantages):
         """ Defining surrogate loss"""
@@ -62,7 +74,8 @@ class TRPO():
 
     def kl_divergence(self, p, q):
         """ Defining KL divergence """
-        return torch.square((p - q)).sum().mean()
+        p = p.detach()
+        return torch.square((p - q)).sum(-1).mean()
 
     def compute_grad(self, y, x, retain_graph=False, create_graph=False):
         """ Computing gradient dy/dx"""
@@ -72,7 +85,7 @@ class TRPO():
         g = torch.cat([t.view(-1) for t in g])
         return g
 
-    def conjugate_gradient(self, hvp_function, b, max_iterations = 10):
+    def conjugate_gradient(self, hvp_function, b, max_iterations=20):
         """ Conjugate gradient algorithm to compute H^-1*b"""
         x = torch.zeros_like(b)
         r = b.clone()
@@ -95,7 +108,8 @@ class TRPO():
         """ Get advantage estimation that is in right form and normalized """
         advantages = [self.estimate_advantages(states, rewards) for states, _, rewards, _, _ in episodes]
         advantages = torch.cat(advantages, dim=0).flatten()
-        return (advantages - advantages.mean()) / advantages.std()
+        # return (advantages - advantages.mean()) / advantages.std()
+        return advantages
 
     def get_probability(self, actions, states):
         mu = self.actor.model.forward(states)
@@ -105,37 +119,38 @@ class TRPO():
 
     def update_agent(self, episodes):
         """ Method to update agent that we train """
-        #PART 1: get states and actions provided through parameter episodes
+        # PART 1: get states and actions provided through parameter episodes
         states = torch.cat([r.states for r in episodes], dim=0)
         next_states = torch.cat([r.next_states for r in episodes], dim=0)
         actions = torch.cat([r.actions for r in episodes], dim=0)
 
-        #PART 2: calculate advantages based on trajectories and normalize it
+        # PART 2: calculate advantages based on trajectories and normalize it
         advantages = self.get_advantage_estimation(episodes)
-        #PART 3: update critic parameters based on advantage estimation
+        # PART 3: update critic parameters based on advantage estimation
         for iter in range(self.critic_epoch_num):
             train_advantages = self.get_advantage_estimation(episodes)
             self.critic.update_critic(train_advantages)
-        #PART 4: get distribution of the policy and define surrogate loss and kl divergence
-
+        # PART 4: get distribution of the policy and define surrogate loss and kl divergence
 
         probability = self.get_probability(actions, states)
         distribution = self.actor.model.forward(states)
 
-
         L = self.surrogate_loss(probability, probability.detach(), advantages)
-        KL = self.kl_divergence(distribution, distribution.detach())
-        #PART 5: compute gradient for surrogate loss and kl divergence
+        KL = self.kl_divergence(distribution, distribution)
+        # PART 5: compute gradient for surrogate loss and kl divergence
         parameters = list(self.actor.model.parameters())
         g = self.compute_grad(L, parameters, retain_graph=True)
         d_kl = self.compute_grad(KL, parameters, create_graph=True)
-        #PART 6: define hessian vector product, compute search direction and max_length to get max step
+
+        # PART 6: define hessian vector product, compute search direction and max_length to get max step
         def HVP(v):
             return self.compute_grad(d_kl @ v, parameters, retain_graph=True)
+
         search_dir = self.conjugate_gradient(HVP, g)
         max_length = torch.sqrt(2 * self.delta / (search_dir @ HVP(search_dir)))
         max_step = max_length * search_dir
-        #PART 7: check if max step satisfy the constraint, if not make it smaller
+
+        # PART 7: check if max step satisfy the constraint, if not make it smaller
         def criterion(step):
             self.actor.upgrade_parameters(step)
             with torch.no_grad():
@@ -148,11 +163,12 @@ class TRPO():
                 return True
             self.actor.upgrade_parameters(-step)
             return False
+
         i = 0
         while not criterion((self.alpha ** i) * max_step) and i < self.backtrack_steps_num:
             i += 1
 
-    def train(self, epochs, num_of_episodes, render_frequency = None, max_reward_per_episode = 5000):
+    def train(self, epochs, num_of_episodes, render_frequency=None, max_reward_per_episode=5000):
         """ Training an agent """
         mean_total_rewards = []
         global_episode = 0
@@ -178,7 +194,7 @@ class TRPO():
                 next_states = torch.stack([torch.from_numpy(state) for state in next_states], dim=0).float()
                 actions = torch.stack([torch.tensor(action) for action in actions], dim=0).float()
                 rewards = torch.as_tensor(rewards).unsqueeze(1)
-                probabilities = torch.tensor(probabilities, requires_grad = True).unsqueeze(1)
+                probabilities = torch.tensor(probabilities, requires_grad=True).unsqueeze(1)
                 episodes.append(Episode(states, actions, rewards, next_states, probabilities))
                 episode_total_rewards.append(rewards.sum().item())
                 global_episode += 1
@@ -187,8 +203,10 @@ class TRPO():
             print(f'E: {epoch}.\tMean total reward across {num_of_episodes} episodes: {mtr}')
             mean_total_rewards.append(mtr)
             if epoch % 10 == 9:
-                torch.save(self.actor.model.state_dict(), 'HumanoidRobotWalk/code/trpo/models/actor' + str(epoch + 1) + '.pt')
-                torch.save(self.critic.model.state_dict(), 'HumanoidRobotWalk/code/trpo/models/critic' + str(epoch + 1) + '.pt')
+                torch.save(self.actor.model.state_dict(),
+                           'HumanoidRobotWalk/code/trpo/models/actor' + str(epoch + 1) + '.pt')
+                torch.save(self.critic.model.state_dict(),
+                           'HumanoidRobotWalk/code/trpo/models/critic' + str(epoch + 1) + '.pt')
                 with open('HumanoidRobotWalk/code/trpo/models/rewards' + str(epoch + 1) + '.txt', 'w+') as fp:
                     fp.write(str(mean_total_rewards))
         plt.plot(mean_total_rewards)
@@ -197,20 +215,20 @@ class TRPO():
 
 if __name__ == "__main__":
     env = gym.make('HumanoidPyBulletEnv-v0')
-    #env.render()
+    # env.render()
     env.reset()
     actor = Actor(44, 17)
-    #actor.model.load_state_dict(torch.load('HumanoidRobotWalk/code/trpo/actor490.pt'))
+    #actor.model.load_state_dict(torch.load('HumanoidRobotWalk/code/trpo/models/actor570.pt'))
     critic = Critic(44, 1)
-    #critic.model.load_state_dict(torch.load('HumanoidRobotWalk/code/trpo/critic490.pt'))
+    #critic.model.load_state_dict(torch.load('HumanoidRobotWalk/code/trpo/models/critic570.pt'))
     trpo = TRPO(env=env,
                 actor=actor,
                 critic=critic,
-                delta=0.003,
-                gamma=0.995,
+                delta=0.01,
+                gamma=0.99,
                 cg_delta=0.1,
                 alpha=0.9,
-                backtrack_steps_num=10,
-                gae_lambda=0.98,
-                critic_epoch_num = 10)
-    trpo.train(epochs=10,num_of_episodes=10,render_frequency=None)
+                backtrack_steps_num=30,
+                gae_lambda=0.97,
+                critic_epoch_num=10)
+    trpo.train(epochs=1000, num_of_episodes=200, render_frequency=None)
