@@ -25,7 +25,8 @@ def train_model(environment, hyper_parameters, total_number_of_time_steps, save_
         print("Training model for the first time (actor and critic models don't exist).")
 
     model = ProximalPolicyOptimization(environment=environment, save_frequency=save_frequency,
-                                       save_model_path=save_model_path, logging_path=logging_path, **hyper_parameters)
+                                       save_model_path=save_model_path, logging_path=logging_path,
+                                       actor_path=actor_model, critic_path=critic_model, **hyper_parameters)
 
     model.train(K=total_number_of_time_steps)
 

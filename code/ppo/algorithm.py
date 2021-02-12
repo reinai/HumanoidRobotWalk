@@ -9,13 +9,17 @@ from model_statistics import ModelStatistics
 
 
 class ProximalPolicyOptimization(object):
-    def __init__(self, environment, save_frequency, save_model_path, logging_path, **hyper_parameters):
+    def __init__(self, environment, save_frequency, save_model_path, logging_path, actor_path=None, critic_path=None,
+                 **hyper_parameters):
         """
         Implementation of PPO algorithm based on: https://spinningup.openai.com/en/latest/algorithms/ppo.html#pseudocode
 
         :param environment: environment of interest, in our case: HumanoidPyBulletEnv-v0
         :param save_frequency: how frequent to save the model
         :param save_model_path: file path where we will save the model
+        :param logging_path: where to log training information
+        :param actor_path: to continue with training if not None
+        :param critic_path: to continue with training if not None
         :param hyper_parameters: PPO algorithm hyper-parameters
         """
         self.__init__hyper_parameters(hyper_parameters=hyper_parameters)
@@ -25,9 +29,19 @@ class ProximalPolicyOptimization(object):
         self.observation_dimensions = self.environment.observation_space.shape[0]  # 44
         self.action_dimensions = self.environment.action_space.shape[0]  # 17
 
-        # initialize actor and critic
-        self.actor = ActorCritic(input_dimensions=self.observation_dimensions, output_dimensions=self.action_dimensions)
-        self.critic = ActorCritic(input_dimensions=self.observation_dimensions, output_dimensions=1)
+        if actor_path is not None and critic_path is not None:
+            self.actor = ActorCritic(input_dimensions=self.observation_dimensions,
+                                     output_dimensions=self.action_dimensions)
+            self.actor.load_state_dict(torch.load(actor_path))
+
+            self.critic = ActorCritic(input_dimensions=self.observation_dimensions, output_dimensions=1)
+            self.critic.load_state_dict(torch.load(critic_path))
+
+        else:
+            # initialize actor and critic
+            self.actor = ActorCritic(input_dimensions=self.observation_dimensions,
+                                     output_dimensions=self.action_dimensions)
+            self.critic = ActorCritic(input_dimensions=self.observation_dimensions, output_dimensions=1)
 
         # initialize Adam optimizers for updating actor and critic parameters with backpropagation
         self.actor_optimizer = AdamOptimizer(params=self.actor.parameters(), lr=self.learning_rate)
