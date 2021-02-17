@@ -46,7 +46,7 @@ if __name__ == "__main__":
         "clip_range": 0.2
     }
 
-    train_model(environment=env, hyper_parameters=model_hyper_parameters, total_number_of_time_steps=1e7,
+    train_model(environment=env, hyper_parameters=model_hyper_parameters, total_number_of_time_steps=1e12,
                 save_frequency=5, save_model_path="../trained_models/ppo",
                 actor_model="../trained_models/ppo/ppo_actor.pth", critic_model="../trained_models/ppo/ppo_critic.pth",
                 logging_path="../plots")

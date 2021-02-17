@@ -9,7 +9,7 @@ obs = env.reset()
 while True:
     action = env.action_space.sample()  # your agent here (this takes random actions)
     observation, reward, is_done, info = env.step(action)
-    time.sleep(0.05)
+    time.sleep(0.03)
 
     if is_done is True:
         env.reset()
