@@ -1,0 +1,3438 @@
+Iteration: 1
+Elapsed time-steps: 4842
+Average Episodic Length: 59.049
+Average Episodic Returns: 17.34
+Average actor loss: -0.037213508039712906
+
+Iteration: 2
+Elapsed time-steps: 9676
+Average Episodic Length: 63.605
+Average Episodic Returns: 21.798
+Average actor loss: -0.026859482750296593
+
+Iteration: 3
+Elapsed time-steps: 14476
+Average Episodic Length: 62.338
+Average Episodic Returns: 20.821
+Average actor loss: -0.027003731578588486
+
+Iteration: 4
+Elapsed time-steps: 19317
+Average Episodic Length: 62.87
+Average Episodic Returns: 20.69
+Average actor loss: -0.02669985592365265
+
+Iteration: 5
+Elapsed time-steps: 24151
+Average Episodic Length: 63.605
+Average Episodic Returns: 21.023
+Average actor loss: -0.025515830144286156
+
+Iteration: 6
+Elapsed time-steps: 28982
+Average Episodic Length: 62.74
+Average Episodic Returns: 21.006
+Average actor loss: -0.02567129209637642
+
+Iteration: 7
+Elapsed time-steps: 33839
+Average Episodic Length: 63.078
+Average Episodic Returns: 18.939
+Average actor loss: -0.027797948569059372
+
+Iteration: 8
+Elapsed time-steps: 38649
+Average Episodic Length: 64.133
+Average Episodic Returns: 21.506
+Average actor loss: -0.025852566584944725
+
+Iteration: 9
+Elapsed time-steps: 43485
+Average Episodic Length: 64.48
+Average Episodic Returns: 19.502
+Average actor loss: -0.025001028552651405
+
+Iteration: 10
+Elapsed time-steps: 48325
+Average Episodic Length: 63.684
+Average Episodic Returns: 21.823
+Average actor loss: -0.026961838826537132
+
+Iteration: 11
+Elapsed time-steps: 53148
+Average Episodic Length: 63.461
+Average Episodic Returns: 21.531
+Average actor loss: -0.027186211198568344
+
+Iteration: 12
+Elapsed time-steps: 57961
+Average Episodic Length: 64.173
+Average Episodic Returns: 22.598
+Average actor loss: -0.02460496872663498
+
+Iteration: 13
+Elapsed time-steps: 62794
+Average Episodic Length: 63.592
+Average Episodic Returns: 18.09
+Average actor loss: -0.02657579444348812
+
+Iteration: 14
+Elapsed time-steps: 67631
+Average Episodic Length: 61.228
+Average Episodic Returns: 20.863
+Average actor loss: -0.025832783430814743
+
+Iteration: 15
+Elapsed time-steps: 72439
+Average Episodic Length: 64.973
+Average Episodic Returns: 20.457
+Average actor loss: -0.025540661066770554
+
+Iteration: 16
+Elapsed time-steps: 77284
+Average Episodic Length: 65.473
+Average Episodic Returns: 20.728
+Average actor loss: -0.025456184521317482
+
+Iteration: 17
+Elapsed time-steps: 82125
+Average Episodic Length: 62.87
+Average Episodic Returns: 20.566
+Average actor loss: -0.025574233382940292
+
+Iteration: 18
+Elapsed time-steps: 86978
+Average Episodic Length: 63.855
+Average Episodic Returns: 20.956
+Average actor loss: -0.02647341415286064
+
+Iteration: 19
+Elapsed time-steps: 91827
+Average Episodic Length: 64.653
+Average Episodic Returns: 22.861
+Average actor loss: -0.025144468992948532
+
+Iteration: 20
+Elapsed time-steps: 96643
+Average Episodic Length: 63.368
+Average Episodic Returns: 23.581
+Average actor loss: -0.024816472083330154
+
+Iteration: 21
+Elapsed time-steps: 101467
+Average Episodic Length: 63.474
+Average Episodic Returns: 21.067
+Average actor loss: -0.025322627276182175
+
+Iteration: 22
+Elapsed time-steps: 106317
+Average Episodic Length: 60.625
+Average Episodic Returns: 19.587
+Average actor loss: -0.026615992188453674
+
+Iteration: 23
+Elapsed time-steps: 111138
+Average Episodic Length: 64.28
+Average Episodic Returns: 22.051
+Average actor loss: -0.02690606191754341
+
+Iteration: 24
+Elapsed time-steps: 115988
+Average Episodic Length: 63.816
+Average Episodic Returns: 19.499
+Average actor loss: -0.027328699827194214
+
+Iteration: 25
+Elapsed time-steps: 120850
+Average Episodic Length: 66.603
+Average Episodic Returns: 24.009
+Average actor loss: -0.02645736373960972
+
+Iteration: 26
+Elapsed time-steps: 125652
+Average Episodic Length: 62.364
+Average Episodic Returns: 19.654
+Average actor loss: -0.02832002379000187
+
+Iteration: 27
+Elapsed time-steps: 130494
+Average Episodic Length: 65.432
+Average Episodic Returns: 22.697
+Average actor loss: -0.024950679391622543
+
+Iteration: 28
+Elapsed time-steps: 135309
+Average Episodic Length: 65.959
+Average Episodic Returns: 22.195
+Average actor loss: -0.027552669867873192
+
+Iteration: 29
+Elapsed time-steps: 140128
+Average Episodic Length: 61.782
+Average Episodic Returns: 18.727
+Average actor loss: -0.025185689330101013
+
+Iteration: 30
+Elapsed time-steps: 144944
+Average Episodic Length: 63.368
+Average Episodic Returns: 24.196
+Average actor loss: -0.02643684111535549
+
+Iteration: 31
+Elapsed time-steps: 149752
+Average Episodic Length: 65.863
+Average Episodic Returns: 22.599
+Average actor loss: -0.027269715443253517
+
+Iteration: 32
+Elapsed time-steps: 154608
+Average Episodic Length: 62.256
+Average Episodic Returns: 20.393
+Average actor loss: -0.028354480862617493
+
+Iteration: 33
+Elapsed time-steps: 159447
+Average Episodic Length: 61.253
+Average Episodic Returns: 19.997
+Average actor loss: -0.026177937164902687
+
+Iteration: 34
+Elapsed time-steps: 164273
+Average Episodic Length: 64.347
+Average Episodic Returns: 23.828
+Average actor loss: -0.02618669904768467
+
+Iteration: 35
+Elapsed time-steps: 169132
+Average Episodic Length: 63.104
+Average Episodic Returns: 21.89
+Average actor loss: -0.026651497930288315
+
+Iteration: 36
+Elapsed time-steps: 173942
+Average Episodic Length: 63.289
+Average Episodic Returns: 20.567
+Average actor loss: -0.025259584188461304
+
+Iteration: 37
+Elapsed time-steps: 178793
+Average Episodic Length: 63.0
+Average Episodic Returns: 17.933
+Average actor loss: -0.029940476641058922
+
+Iteration: 38
+Elapsed time-steps: 183593
+Average Episodic Length: 62.338
+Average Episodic Returns: 20.694
+Average actor loss: -0.028448602184653282
+
+Iteration: 39
+Elapsed time-steps: 188421
+Average Episodic Length: 62.701
+Average Episodic Returns: 21.056
+Average actor loss: -0.025726228952407837
+
+Iteration: 40
+Elapsed time-steps: 193252
+Average Episodic Length: 62.74
+Average Episodic Returns: 19.684
+Average actor loss: -0.026411404833197594
+
+Iteration: 41
+Elapsed time-steps: 198065
+Average Episodic Length: 64.173
+Average Episodic Returns: 20.541
+Average actor loss: -0.02531416155397892
+
+Iteration: 42
+Elapsed time-steps: 202918
+Average Episodic Length: 60.662
+Average Episodic Returns: 18.549
+Average actor loss: -0.025945916771888733
+
+Iteration: 43
+Elapsed time-steps: 207769
+Average Episodic Length: 64.68
+Average Episodic Returns: 20.825
+Average actor loss: -0.028447195887565613
+
+Iteration: 44
+Elapsed time-steps: 212573
+Average Episodic Length: 64.053
+Average Episodic Returns: 21.759
+Average actor loss: -0.026697572320699692
+
+Iteration: 45
+Elapsed time-steps: 217420
+Average Episodic Length: 65.5
+Average Episodic Returns: 24.181
+Average actor loss: -0.02614479884505272
+
+Iteration: 46
+Elapsed time-steps: 222272
+Average Episodic Length: 63.013
+Average Episodic Returns: 22.366
+Average actor loss: -0.028142381459474564
+
+Iteration: 47
+Elapsed time-steps: 227149
+Average Episodic Length: 63.338
+Average Episodic Returns: 21.013
+Average actor loss: -0.027104299515485764
+
+Iteration: 48
+Elapsed time-steps: 231958
+Average Episodic Length: 64.12
+Average Episodic Returns: 24.107
+Average actor loss: -0.02653404138982296
+
+Iteration: 49
+Elapsed time-steps: 236793
+Average Episodic Length: 64.467
+Average Episodic Returns: 20.812
+Average actor loss: -0.0249601062387228
+
+Iteration: 50
+Elapsed time-steps: 241639
+Average Episodic Length: 63.763
+Average Episodic Returns: 19.03
+Average actor loss: -0.028757300227880478
+
+Iteration: 51
+Elapsed time-steps: 246494
+Average Episodic Length: 63.882
+Average Episodic Returns: 21.247
+Average actor loss: -0.025405967608094215
+
+Iteration: 52
+Elapsed time-steps: 251318
+Average Episodic Length: 64.32
+Average Episodic Returns: 21.146
+Average actor loss: -0.025575753301382065
+
+Iteration: 53
+Elapsed time-steps: 256167
+Average Episodic Length: 63.803
+Average Episodic Returns: 20.766
+Average actor loss: -0.027669694274663925
+
+Iteration: 54
+Elapsed time-steps: 260991
+Average Episodic Length: 63.474
+Average Episodic Returns: 22.97
+Average actor loss: -0.026392828673124313
+
+Iteration: 55
+Elapsed time-steps: 265810
+Average Episodic Length: 62.584
+Average Episodic Returns: 21.038
+Average actor loss: -0.02567889913916588
+
+Iteration: 56
+Elapsed time-steps: 270644
+Average Episodic Length: 65.324
+Average Episodic Returns: 23.09
+Average actor loss: -0.026999901980161667
+
+Iteration: 57
+Elapsed time-steps: 275499
+Average Episodic Length: 63.882
+Average Episodic Returns: 18.943
+Average actor loss: -0.024638978764414787
+
+Iteration: 58
+Elapsed time-steps: 280355
+Average Episodic Length: 64.747
+Average Episodic Returns: 22.978
+Average actor loss: -0.028632307425141335
+
+Iteration: 59
+Elapsed time-steps: 285242
+Average Episodic Length: 66.945
+Average Episodic Returns: 22.708
+Average actor loss: -0.02748768962919712
+
+Iteration: 60
+Elapsed time-steps: 290101
+Average Episodic Length: 64.787
+Average Episodic Returns: 19.246
+Average actor loss: -0.025250425562262535
+
+Iteration: 61
+Elapsed time-steps: 294902
+Average Episodic Length: 62.351
+Average Episodic Returns: 19.8
+Average actor loss: -0.02734341099858284
+
+Iteration: 62
+Elapsed time-steps: 299795
+Average Episodic Length: 61.937
+Average Episodic Returns: 22.281
+Average actor loss: -0.027586180716753006
+
+Iteration: 63
+Elapsed time-steps: 304596
+Average Episodic Length: 60.772
+Average Episodic Returns: 18.581
+Average actor loss: -0.028424466028809547
+
+Iteration: 64
+Elapsed time-steps: 309408
+Average Episodic Length: 64.16
+Average Episodic Returns: 22.238
+Average actor loss: -0.025535251945257187
+
+Iteration: 65
+Elapsed time-steps: 314233
+Average Episodic Length: 63.487
+Average Episodic Returns: 21.751
+Average actor loss: -0.026858726516366005
+
+Iteration: 66
+Elapsed time-steps: 319060
+Average Episodic Length: 61.101
+Average Episodic Returns: 20.267
+Average actor loss: -0.025996405631303787
+
+Iteration: 67
+Elapsed time-steps: 323890
+Average Episodic Length: 65.27
+Average Episodic Returns: 22.834
+Average actor loss: -0.026480263099074364
+
+Iteration: 68
+Elapsed time-steps: 328712
+Average Episodic Length: 62.623
+Average Episodic Returns: 17.419
+Average actor loss: -0.025917425751686096
+
+Iteration: 69
+Elapsed time-steps: 333604
+Average Episodic Length: 62.718
+Average Episodic Returns: 18.901
+Average actor loss: -0.025972936302423477
+
+Iteration: 70
+Elapsed time-steps: 338419
+Average Episodic Length: 65.068
+Average Episodic Returns: 23.886
+Average actor loss: -0.02453777752816677
+
+Iteration: 71
+Elapsed time-steps: 343257
+Average Episodic Length: 64.507
+Average Episodic Returns: 23.839
+Average actor loss: -0.025184020400047302
+
+Iteration: 72
+Elapsed time-steps: 348104
+Average Episodic Length: 62.141
+Average Episodic Returns: 19.995
+Average actor loss: -0.024130990728735924
+
+Iteration: 73
+Elapsed time-steps: 352931
+Average Episodic Length: 63.513
+Average Episodic Returns: 21.527
+Average actor loss: -0.02750949189066887
+
+Iteration: 74
+Elapsed time-steps: 357752
+Average Episodic Length: 63.434
+Average Episodic Returns: 18.257
+Average actor loss: -0.025398369878530502
+
+Iteration: 75
+Elapsed time-steps: 362577
+Average Episodic Length: 62.662
+Average Episodic Returns: 21.517
+Average actor loss: -0.02677222527563572
+
+Iteration: 76
+Elapsed time-steps: 367422
+Average Episodic Length: 62.922
+Average Episodic Returns: 18.505
+Average actor loss: -0.027790699154138565
+
+Iteration: 77
+Elapsed time-steps: 372274
+Average Episodic Length: 64.693
+Average Episodic Returns: 22.976
+Average actor loss: -0.025030773133039474
+
+Iteration: 78
+Elapsed time-steps: 377078
+Average Episodic Length: 63.211
+Average Episodic Returns: 22.314
+Average actor loss: -0.027814488857984543
+
+Iteration: 79
+Elapsed time-steps: 381910
+Average Episodic Length: 65.297
+Average Episodic Returns: 20.998
+Average actor loss: -0.027886217460036278
+
+Iteration: 80
+Elapsed time-steps: 386740
+Average Episodic Length: 64.4
+Average Episodic Returns: 20.268
+Average actor loss: -0.027239879593253136
+
+Iteration: 81
+Elapsed time-steps: 391582
+Average Episodic Length: 64.56
+Average Episodic Returns: 18.573
+Average actor loss: -0.025404905900359154
+
+Iteration: 82
+Elapsed time-steps: 396433
+Average Episodic Length: 64.68
+Average Episodic Returns: 22.007
+Average actor loss: -0.025532424449920654
+
+Iteration: 83
+Elapsed time-steps: 401254
+Average Episodic Length: 66.958
+Average Episodic Returns: 23.417
+Average actor loss: -0.02489386685192585
+
+Iteration: 84
+Elapsed time-steps: 406090
+Average Episodic Length: 61.215
+Average Episodic Returns: 20.693
+Average actor loss: -0.026799660176038742
+
+Iteration: 85
+Elapsed time-steps: 410926
+Average Episodic Length: 62.0
+Average Episodic Returns: 19.994
+Average actor loss: -0.027015795931220055
+
+Iteration: 86
+Elapsed time-steps: 415736
+Average Episodic Length: 62.468
+Average Episodic Returns: 18.167
+Average actor loss: -0.024786850437521935
+
+Iteration: 87
+Elapsed time-steps: 420579
+Average Episodic Length: 62.09
+Average Episodic Returns: 22.299
+Average actor loss: -0.0282314270734787
+
+Iteration: 88
+Elapsed time-steps: 425421
+Average Episodic Length: 65.432
+Average Episodic Returns: 21.215
+Average actor loss: -0.026662861928343773
+
+Iteration: 89
+Elapsed time-steps: 430226
+Average Episodic Length: 65.822
+Average Episodic Returns: 22.352
+Average actor loss: -0.025950098410248756
+
+Iteration: 90
+Elapsed time-steps: 435084
+Average Episodic Length: 66.548
+Average Episodic Returns: 22.573
+Average actor loss: -0.025885287672281265
+
+Iteration: 91
+Elapsed time-steps: 439933
+Average Episodic Length: 63.803
+Average Episodic Returns: 20.349
+Average actor loss: -0.026367560029029846
+
+Iteration: 92
+Elapsed time-steps: 444749
+Average Episodic Length: 65.081
+Average Episodic Returns: 23.128
+Average actor loss: -0.025728562846779823
+
+Iteration: 93
+Elapsed time-steps: 449593
+Average Episodic Length: 66.356
+Average Episodic Returns: 23.231
+Average actor loss: -0.026041310280561447
+
+Iteration: 94
+Elapsed time-steps: 454425
+Average Episodic Length: 64.427
+Average Episodic Returns: 22.32
+Average actor loss: -0.02716047130525112
+
+Iteration: 95
+Elapsed time-steps: 459275
+Average Episodic Length: 64.667
+Average Episodic Returns: 23.107
+Average actor loss: -0.027729813009500504
+
+Iteration: 96
+Elapsed time-steps: 464102
+Average Episodic Length: 64.36
+Average Episodic Returns: 22.012
+Average actor loss: -0.025060290470719337
+
+Iteration: 97
+Elapsed time-steps: 468929
+Average Episodic Length: 64.36
+Average Episodic Returns: 20.069
+Average actor loss: -0.02855020761489868
+
+Iteration: 98
+Elapsed time-steps: 473761
+Average Episodic Length: 63.579
+Average Episodic Returns: 22.091
+Average actor loss: -0.025888418778777122
+
+Iteration: 99
+Elapsed time-steps: 478643
+Average Episodic Length: 63.403
+Average Episodic Returns: 20.945
+Average actor loss: -0.02647615596652031
+
+Iteration: 100
+Elapsed time-steps: 483458
+Average Episodic Length: 65.959
+Average Episodic Returns: 22.273
+Average actor loss: -0.025383710861206055
+
+Iteration: 101
+Elapsed time-steps: 488301
+Average Episodic Length: 65.446
+Average Episodic Returns: 21.271
+Average actor loss: -0.025033151730895042
+
+Iteration: 102
+Elapsed time-steps: 493150
+Average Episodic Length: 67.347
+Average Episodic Returns: 22.433
+Average actor loss: -0.026872003450989723
+
+Iteration: 103
+Elapsed time-steps: 497989
+Average Episodic Length: 66.288
+Average Episodic Returns: 18.781
+Average actor loss: -0.026250261813402176
+
+Iteration: 104
+Elapsed time-steps: 502805
+Average Episodic Length: 65.081
+Average Episodic Returns: 18.828
+Average actor loss: -0.02733607590198517
+
+Iteration: 105
+Elapsed time-steps: 507656
+Average Episodic Length: 65.554
+Average Episodic Returns: 20.847
+Average actor loss: -0.025176525115966797
+
+Iteration: 106
+Elapsed time-steps: 512472
+Average Episodic Length: 64.213
+Average Episodic Returns: 22.781
+Average actor loss: -0.025678422302007675
+
+Iteration: 107
+Elapsed time-steps: 517287
+Average Episodic Length: 63.355
+Average Episodic Returns: 20.839
+Average actor loss: -0.02634795382618904
+
+Iteration: 108
+Elapsed time-steps: 522143
+Average Episodic Length: 63.065
+Average Episodic Returns: 19.035
+Average actor loss: -0.027710814028978348
+
+Iteration: 109
+Elapsed time-steps: 527001
+Average Episodic Length: 63.921
+Average Episodic Returns: 22.543
+Average actor loss: -0.02632264234125614
+
+Iteration: 110
+Elapsed time-steps: 531826
+Average Episodic Length: 62.662
+Average Episodic Returns: 17.403
+Average actor loss: -0.024698087945580482
+
+Iteration: 111
+Elapsed time-steps: 536675
+Average Episodic Length: 62.974
+Average Episodic Returns: 21.693
+Average actor loss: -0.026683460921049118
+
+Iteration: 112
+Elapsed time-steps: 541530
+Average Episodic Length: 64.733
+Average Episodic Returns: 21.249
+Average actor loss: -0.025638634338974953
+
+Iteration: 113
+Elapsed time-steps: 546385
+Average Episodic Length: 64.733
+Average Episodic Returns: 20.656
+Average actor loss: -0.025162622332572937
+
+Iteration: 114
+Elapsed time-steps: 551213
+Average Episodic Length: 64.373
+Average Episodic Returns: 20.973
+Average actor loss: -0.027213985100388527
+
+Iteration: 115
+Elapsed time-steps: 556050
+Average Episodic Length: 65.365
+Average Episodic Returns: 23.228
+Average actor loss: -0.027814358472824097
+
+Iteration: 116
+Elapsed time-steps: 560904
+Average Episodic Length: 63.039
+Average Episodic Returns: 19.753
+Average actor loss: -0.02580106630921364
+
+Iteration: 117
+Elapsed time-steps: 565758
+Average Episodic Length: 65.595
+Average Episodic Returns: 22.343
+Average actor loss: -0.02663823962211609
+
+Iteration: 118
+Elapsed time-steps: 570573
+Average Episodic Length: 65.959
+Average Episodic Returns: 22.208
+Average actor loss: -0.026813428848981857
+
+Iteration: 119
+Elapsed time-steps: 575392
+Average Episodic Length: 66.014
+Average Episodic Returns: 21.394
+Average actor loss: -0.028333842754364014
+
+Iteration: 120
+Elapsed time-steps: 580201
+Average Episodic Length: 64.12
+Average Episodic Returns: 22.334
+Average actor loss: -0.025223245844244957
+
+Iteration: 121
+Elapsed time-steps: 585009
+Average Episodic Length: 66.778
+Average Episodic Returns: 19.565
+Average actor loss: -0.027272239327430725
+
+Iteration: 122
+Elapsed time-steps: 589821
+Average Episodic Length: 65.027
+Average Episodic Returns: 22.44
+Average actor loss: -0.02562554180622101
+
+Iteration: 123
+Elapsed time-steps: 594622
+Average Episodic Length: 64.013
+Average Episodic Returns: 21.727
+Average actor loss: -0.02680942974984646
+
+Iteration: 124
+Elapsed time-steps: 599461
+Average Episodic Length: 63.671
+Average Episodic Returns: 21.517
+Average actor loss: -0.02595188096165657
+
+Iteration: 125
+Elapsed time-steps: 604274
+Average Episodic Length: 64.173
+Average Episodic Returns: 22.094
+Average actor loss: -0.02515619620680809
+
+Iteration: 126
+Elapsed time-steps: 609101
+Average Episodic Length: 64.36
+Average Episodic Returns: 21.531
+Average actor loss: -0.027252912521362305
+
+Iteration: 127
+Elapsed time-steps: 613946
+Average Episodic Length: 62.115
+Average Episodic Returns: 19.825
+Average actor loss: -0.02684538997709751
+
+Iteration: 128
+Elapsed time-steps: 618809
+Average Episodic Length: 63.987
+Average Episodic Returns: 21.165
+Average actor loss: -0.02397720329463482
+
+Iteration: 129
+Elapsed time-steps: 623622
+Average Episodic Length: 63.329
+Average Episodic Returns: 22.849
+Average actor loss: -0.02577420137822628
+
+Iteration: 130
+Elapsed time-steps: 628437
+Average Episodic Length: 63.355
+Average Episodic Returns: 20.574
+Average actor loss: -0.02592729963362217
+
+Iteration: 131
+Elapsed time-steps: 633254
+Average Episodic Length: 65.095
+Average Episodic Returns: 23.891
+Average actor loss: -0.025124136358499527
+
+Iteration: 132
+Elapsed time-steps: 638088
+Average Episodic Length: 62.779
+Average Episodic Returns: 20.268
+Average actor loss: -0.02772700786590576
+
+Iteration: 133
+Elapsed time-steps: 642937
+Average Episodic Length: 66.425
+Average Episodic Returns: 24.156
+Average actor loss: -0.025815963745117188
+
+Iteration: 134
+Elapsed time-steps: 647769
+Average Episodic Length: 63.579
+Average Episodic Returns: 23.181
+Average actor loss: -0.027201201766729355
+
+Iteration: 135
+Elapsed time-steps: 652585
+Average Episodic Length: 63.368
+Average Episodic Returns: 21.871
+Average actor loss: -0.027891825884580612
+
+Iteration: 136
+Elapsed time-steps: 657437
+Average Episodic Length: 59.901
+Average Episodic Returns: 16.875
+Average actor loss: -0.02843642234802246
+
+Iteration: 137
+Elapsed time-steps: 662279
+Average Episodic Length: 62.883
+Average Episodic Returns: 20.897
+Average actor loss: -0.026102755218744278
+
+Iteration: 138
+Elapsed time-steps: 667149
+Average Episodic Length: 64.933
+Average Episodic Returns: 21.349
+Average actor loss: -0.026145419105887413
+
+Iteration: 139
+Elapsed time-steps: 672000
+Average Episodic Length: 63.829
+Average Episodic Returns: 21.35
+Average actor loss: -0.02658173069357872
+
+Iteration: 140
+Elapsed time-steps: 676830
+Average Episodic Length: 63.553
+Average Episodic Returns: 18.637
+Average actor loss: -0.02693321742117405
+
+Iteration: 141
+Elapsed time-steps: 681660
+Average Episodic Length: 64.4
+Average Episodic Returns: 19.77
+Average actor loss: -0.02759384550154209
+
+Iteration: 142
+Elapsed time-steps: 686469
+Average Episodic Length: 64.12
+Average Episodic Returns: 19.872
+Average actor loss: -0.026237737387418747
+
+Iteration: 143
+Elapsed time-steps: 691327
+Average Episodic Length: 64.773
+Average Episodic Returns: 24.107
+Average actor loss: -0.02785683237016201
+
+Iteration: 144
+Elapsed time-steps: 696143
+Average Episodic Length: 65.973
+Average Episodic Returns: 21.809
+Average actor loss: -0.027165764942765236
+
+Iteration: 145
+Elapsed time-steps: 700956
+Average Episodic Length: 66.847
+Average Episodic Returns: 22.551
+Average actor loss: -0.02608414553105831
+
+Iteration: 146
+Elapsed time-steps: 705803
+Average Episodic Length: 64.627
+Average Episodic Returns: 18.308
+Average actor loss: -0.029746433719992638
+
+Iteration: 147
+Elapsed time-steps: 710631
+Average Episodic Length: 65.243
+Average Episodic Returns: 23.017
+Average actor loss: -0.027467617765069008
+
+Iteration: 148
+Elapsed time-steps: 715450
+Average Episodic Length: 62.584
+Average Episodic Returns: 19.277
+Average actor loss: -0.027240177616477013
+
+Iteration: 149
+Elapsed time-steps: 720281
+Average Episodic Length: 61.936
+Average Episodic Returns: 20.795
+Average actor loss: -0.026881739497184753
+
+Iteration: 150
+Elapsed time-steps: 725096
+Average Episodic Length: 66.875
+Average Episodic Returns: 21.003
+Average actor loss: -0.025726908817887306
+
+Iteration: 151
+Elapsed time-steps: 729942
+Average Episodic Length: 62.935
+Average Episodic Returns: 20.039
+Average actor loss: -0.026450421661138535
+
+Iteration: 152
+Elapsed time-steps: 734744
+Average Episodic Length: 64.892
+Average Episodic Returns: 20.1
+Average actor loss: -0.02535485103726387
+
+Iteration: 153
+Elapsed time-steps: 739613
+Average Episodic Length: 62.423
+Average Episodic Returns: 19.654
+Average actor loss: -0.028271600604057312
+
+Iteration: 154
+Elapsed time-steps: 744461
+Average Episodic Length: 61.367
+Average Episodic Returns: 21.16
+Average actor loss: -0.02616792544722557
+
+Iteration: 155
+Elapsed time-steps: 749311
+Average Episodic Length: 61.392
+Average Episodic Returns: 21.541
+Average actor loss: -0.026807883754372597
+
+Iteration: 156
+Elapsed time-steps: 754133
+Average Episodic Length: 61.038
+Average Episodic Returns: 21.311
+Average actor loss: -0.02742459811270237
+
+Iteration: 157
+Elapsed time-steps: 758976
+Average Episodic Length: 64.573
+Average Episodic Returns: 21.199
+Average actor loss: -0.027661573141813278
+
+Iteration: 158
+Elapsed time-steps: 763832
+Average Episodic Length: 63.895
+Average Episodic Returns: 21.772
+Average actor loss: -0.0249367393553257
+
+Iteration: 159
+Elapsed time-steps: 768663
+Average Episodic Length: 62.74
+Average Episodic Returns: 22.335
+Average actor loss: -0.026183415204286575
+
+Iteration: 160
+Elapsed time-steps: 773506
+Average Episodic Length: 65.446
+Average Episodic Returns: 21.396
+Average actor loss: -0.02592555060982704
+
+Iteration: 161
+Elapsed time-steps: 778344
+Average Episodic Length: 59.0
+Average Episodic Returns: 17.218
+Average actor loss: -0.025578733533620834
+
+Iteration: 162
+Elapsed time-steps: 783207
+Average Episodic Length: 62.346
+Average Episodic Returns: 21.255
+Average actor loss: -0.025383848696947098
+
+Iteration: 163
+Elapsed time-steps: 788062
+Average Episodic Length: 63.052
+Average Episodic Returns: 18.548
+Average actor loss: -0.030227486044168472
+
+Iteration: 164
+Elapsed time-steps: 792910
+Average Episodic Length: 61.367
+Average Episodic Returns: 21.166
+Average actor loss: -0.0259038507938385
+
+Iteration: 165
+Elapsed time-steps: 797739
+Average Episodic Length: 60.362
+Average Episodic Returns: 17.063
+Average actor loss: -0.029887819662690163
+
+Iteration: 166
+Elapsed time-steps: 802584
+Average Episodic Length: 61.329
+Average Episodic Returns: 18.994
+Average actor loss: -0.027655163779854774
+
+Iteration: 167
+Elapsed time-steps: 807388
+Average Episodic Length: 61.59
+Average Episodic Returns: 19.775
+Average actor loss: -0.026271561160683632
+
+Iteration: 168
+Elapsed time-steps: 812233
+Average Episodic Length: 63.75
+Average Episodic Returns: 20.54
+Average actor loss: -0.02519831620156765
+
+Iteration: 169
+Elapsed time-steps: 817078
+Average Episodic Length: 62.115
+Average Episodic Returns: 19.913
+Average actor loss: -0.027726227417588234
+
+Iteration: 170
+Elapsed time-steps: 821890
+Average Episodic Length: 61.692
+Average Episodic Returns: 18.707
+Average actor loss: -0.027116969227790833
+
+Iteration: 171
+Elapsed time-steps: 826727
+Average Episodic Length: 61.228
+Average Episodic Returns: 20.28
+Average actor loss: -0.024937903508543968
+
+Iteration: 172
+Elapsed time-steps: 831577
+Average Episodic Length: 63.816
+Average Episodic Returns: 21.955
+Average actor loss: -0.02716374769806862
+
+Iteration: 173
+Elapsed time-steps: 836440
+Average Episodic Length: 63.156
+Average Episodic Returns: 21.885
+Average actor loss: -0.025509962812066078
+
+Iteration: 174
+Elapsed time-steps: 841250
+Average Episodic Length: 62.468
+Average Episodic Returns: 21.9
+Average actor loss: -0.02631305530667305
+
+Iteration: 175
+Elapsed time-steps: 846079
+Average Episodic Length: 64.387
+Average Episodic Returns: 19.552
+Average actor loss: -0.025573406368494034
+
+Iteration: 176
+Elapsed time-steps: 850926
+Average Episodic Length: 61.354
+Average Episodic Returns: 19.295
+Average actor loss: -0.028387989848852158
+
+Iteration: 177
+Elapsed time-steps: 855771
+Average Episodic Length: 61.329
+Average Episodic Returns: 23.576
+Average actor loss: -0.025443682447075844
+
+Iteration: 178
+Elapsed time-steps: 860633
+Average Episodic Length: 64.827
+Average Episodic Returns: 21.774
+Average actor loss: -0.024963485077023506
+
+Iteration: 179
+Elapsed time-steps: 865477
+Average Episodic Length: 62.103
+Average Episodic Returns: 20.595
+Average actor loss: -0.02759832702577114
+
+Iteration: 180
+Elapsed time-steps: 870325
+Average Episodic Length: 62.154
+Average Episodic Returns: 20.864
+Average actor loss: -0.02432105503976345
+
+Iteration: 181
+Elapsed time-steps: 875134
+Average Episodic Length: 62.455
+Average Episodic Returns: 23.432
+Average actor loss: -0.026960093528032303
+
+Iteration: 182
+Elapsed time-steps: 880007
+Average Episodic Length: 63.286
+Average Episodic Returns: 20.21
+Average actor loss: -0.027967218309640884
+
+Iteration: 183
+Elapsed time-steps: 884835
+Average Episodic Length: 62.701
+Average Episodic Returns: 22.11
+Average actor loss: -0.025331562384963036
+
+Iteration: 184
+Elapsed time-steps: 889667
+Average Episodic Length: 63.579
+Average Episodic Returns: 22.8
+Average actor loss: -0.02696199342608452
+
+Iteration: 185
+Elapsed time-steps: 894471
+Average Episodic Length: 61.59
+Average Episodic Returns: 19.793
+Average actor loss: -0.02890653908252716
+
+Iteration: 186
+Elapsed time-steps: 899319
+Average Episodic Length: 66.411
+Average Episodic Returns: 23.985
+Average actor loss: -0.02628987468779087
+
+Iteration: 187
+Elapsed time-steps: 904188
+Average Episodic Length: 64.066
+Average Episodic Returns: 20.646
+Average actor loss: -0.02578473463654518
+
+Iteration: 188
+Elapsed time-steps: 908989
+Average Episodic Length: 63.171
+Average Episodic Returns: 23.054
+Average actor loss: -0.024755047634243965
+
+Iteration: 189
+Elapsed time-steps: 913851
+Average Episodic Length: 62.333
+Average Episodic Returns: 20.484
+Average actor loss: -0.02776433899998665
+
+Iteration: 190
+Elapsed time-steps: 918694
+Average Episodic Length: 64.573
+Average Episodic Returns: 22.187
+Average actor loss: -0.027196750044822693
+
+Iteration: 191
+Elapsed time-steps: 923522
+Average Episodic Length: 63.526
+Average Episodic Returns: 21.008
+Average actor loss: -0.02689231000840664
+
+Iteration: 192
+Elapsed time-steps: 928346
+Average Episodic Length: 61.063
+Average Episodic Returns: 21.821
+Average actor loss: -0.02566402591764927
+
+Iteration: 193
+Elapsed time-steps: 933201
+Average Episodic Length: 60.688
+Average Episodic Returns: 20.221
+Average actor loss: -0.025643035769462585
+
+Iteration: 194
+Elapsed time-steps: 938047
+Average Episodic Length: 62.128
+Average Episodic Returns: 22.246
+Average actor loss: -0.0244308989495039
+
+Iteration: 195
+Elapsed time-steps: 942848
+Average Episodic Length: 60.772
+Average Episodic Returns: 19.085
+Average actor loss: -0.02570338547229767
+
+Iteration: 196
+Elapsed time-steps: 947661
+Average Episodic Length: 64.173
+Average Episodic Returns: 22.26
+Average actor loss: -0.027451610192656517
+
+Iteration: 197
+Elapsed time-steps: 952536
+Average Episodic Length: 62.5
+Average Episodic Returns: 20.707
+Average actor loss: -0.026069071143865585
+
+Iteration: 198
+Elapsed time-steps: 957375
+Average Episodic Length: 64.52
+Average Episodic Returns: 21.343
+Average actor loss: -0.026608839631080627
+
+Iteration: 199
+Elapsed time-steps: 962180
+Average Episodic Length: 64.932
+Average Episodic Returns: 23.458
+Average actor loss: -0.026623671874403954
+
+Iteration: 200
+Elapsed time-steps: 966989
+Average Episodic Length: 63.276
+Average Episodic Returns: 22.364
+Average actor loss: -0.025518346577882767
+
+Iteration: 201
+Elapsed time-steps: 971808
+Average Episodic Length: 62.584
+Average Episodic Returns: 20.655
+Average actor loss: -0.026414766907691956
+
+Iteration: 202
+Elapsed time-steps: 976618
+Average Episodic Length: 62.468
+Average Episodic Returns: 21.237
+Average actor loss: -0.025783494114875793
+
+Iteration: 203
+Elapsed time-steps: 981466
+Average Episodic Length: 62.154
+Average Episodic Returns: 20.882
+Average actor loss: -0.02647482417523861
+
+Iteration: 204
+Elapsed time-steps: 986276
+Average Episodic Length: 61.667
+Average Episodic Returns: 21.838
+Average actor loss: -0.028781894594430923
+
+Iteration: 205
+Elapsed time-steps: 991081
+Average Episodic Length: 63.224
+Average Episodic Returns: 21.983
+Average actor loss: -0.026695553213357925
+
+Iteration: 206
+Elapsed time-steps: 995936
+Average Episodic Length: 63.052
+Average Episodic Returns: 20.979
+Average actor loss: -0.025823300704360008
+
+Iteration: 207
+Elapsed time-steps: 1000789
+Average Episodic Length: 62.218
+Average Episodic Returns: 21.465
+Average actor loss: -0.026479437947273254
+
+Iteration: 208
+Elapsed time-steps: 1005654
+Average Episodic Length: 64.013
+Average Episodic Returns: 19.887
+Average actor loss: -0.025008689612150192
+
+Iteration: 209
+Elapsed time-steps: 1010473
+Average Episodic Length: 62.584
+Average Episodic Returns: 18.064
+Average actor loss: -0.02494822070002556
+
+Iteration: 210
+Elapsed time-steps: 1015319
+Average Episodic Length: 63.763
+Average Episodic Returns: 21.516
+Average actor loss: -0.027449509128928185
+
+Iteration: 211
+Elapsed time-steps: 1020172
+Average Episodic Length: 62.218
+Average Episodic Returns: 21.238
+Average actor loss: -0.026303540915250778
+
+Iteration: 212
+Elapsed time-steps: 1024988
+Average Episodic Length: 64.213
+Average Episodic Returns: 20.689
+Average actor loss: -0.027495726943016052
+
+Iteration: 213
+Elapsed time-steps: 1029806
+Average Episodic Length: 63.395
+Average Episodic Returns: 22.838
+Average actor loss: -0.027014141902327538
+
+Iteration: 214
+Elapsed time-steps: 1034645
+Average Episodic Length: 63.671
+Average Episodic Returns: 23.774
+Average actor loss: -0.02630215883255005
+
+Iteration: 215
+Elapsed time-steps: 1039450
+Average Episodic Length: 60.823
+Average Episodic Returns: 20.847
+Average actor loss: -0.026818886399269104
+
+Iteration: 216
+Elapsed time-steps: 1044296
+Average Episodic Length: 64.613
+Average Episodic Returns: 20.981
+Average actor loss: -0.028146589174866676
+
+Iteration: 217
+Elapsed time-steps: 1049143
+Average Episodic Length: 65.5
+Average Episodic Returns: 22.352
+Average actor loss: -0.02734716795384884
+
+Iteration: 218
+Elapsed time-steps: 1053947
+Average Episodic Length: 63.211
+Average Episodic Returns: 21.707
+Average actor loss: -0.02615305408835411
+
+Iteration: 219
+Elapsed time-steps: 1058771
+Average Episodic Length: 64.32
+Average Episodic Returns: 19.824
+Average actor loss: -0.027305569499731064
+
+Iteration: 220
+Elapsed time-steps: 1063589
+Average Episodic Length: 63.395
+Average Episodic Returns: 18.767
+Average actor loss: -0.026157885789871216
+
+Iteration: 221
+Elapsed time-steps: 1068467
+Average Episodic Length: 62.538
+Average Episodic Returns: 17.739
+Average actor loss: -0.026327822357416153
+
+Iteration: 222
+Elapsed time-steps: 1073321
+Average Episodic Length: 62.231
+Average Episodic Returns: 19.903
+Average actor loss: -0.026280811056494713
+
+Iteration: 223
+Elapsed time-steps: 1078155
+Average Episodic Length: 63.605
+Average Episodic Returns: 20.007
+Average actor loss: -0.026993056759238243
+
+Iteration: 224
+Elapsed time-steps: 1083014
+Average Episodic Length: 63.104
+Average Episodic Returns: 21.388
+Average actor loss: -0.02571006491780281
+
+Iteration: 225
+Elapsed time-steps: 1087859
+Average Episodic Length: 64.6
+Average Episodic Returns: 20.985
+Average actor loss: -0.025359684601426125
+
+Iteration: 226
+Elapsed time-steps: 1092675
+Average Episodic Length: 63.368
+Average Episodic Returns: 21.105
+Average actor loss: -0.026510775089263916
+
+Iteration: 227
+Elapsed time-steps: 1097498
+Average Episodic Length: 63.461
+Average Episodic Returns: 24.015
+Average actor loss: -0.027861345559358597
+
+Iteration: 228
+Elapsed time-steps: 1102353
+Average Episodic Length: 65.608
+Average Episodic Returns: 22.049
+Average actor loss: -0.028517533093690872
+
+Iteration: 229
+Elapsed time-steps: 1107184
+Average Episodic Length: 63.566
+Average Episodic Returns: 20.066
+Average actor loss: -0.027409899979829788
+
+Iteration: 230
+Elapsed time-steps: 1112033
+Average Episodic Length: 65.527
+Average Episodic Returns: 23.83
+Average actor loss: -0.026199394837021828
+
+Iteration: 231
+Elapsed time-steps: 1116863
+Average Episodic Length: 64.4
+Average Episodic Returns: 21.579
+Average actor loss: -0.029163610190153122
+
+Iteration: 232
+Elapsed time-steps: 1121706
+Average Episodic Length: 60.538
+Average Episodic Returns: 19.367
+Average actor loss: -0.027078211307525635
+
+Iteration: 233
+Elapsed time-steps: 1126554
+Average Episodic Length: 62.961
+Average Episodic Returns: 21.609
+Average actor loss: -0.024149226024746895
+
+Iteration: 234
+Elapsed time-steps: 1131379
+Average Episodic Length: 61.859
+Average Episodic Returns: 19.902
+Average actor loss: -0.026139145717024803
+
+Iteration: 235
+Elapsed time-steps: 1136197
+Average Episodic Length: 64.24
+Average Episodic Returns: 20.852
+Average actor loss: -0.024735989049077034
+
+Iteration: 236
+Elapsed time-steps: 1141047
+Average Episodic Length: 64.667
+Average Episodic Returns: 19.97
+Average actor loss: -0.0265379436314106
+
+Iteration: 237
+Elapsed time-steps: 1145884
+Average Episodic Length: 62.013
+Average Episodic Returns: 18.781
+Average actor loss: -0.0292317233979702
+
+Iteration: 238
+Elapsed time-steps: 1150722
+Average Episodic Length: 66.274
+Average Episodic Returns: 23.953
+Average actor loss: -0.02375507913529873
+
+Iteration: 239
+Elapsed time-steps: 1155548
+Average Episodic Length: 62.675
+Average Episodic Returns: 21.0
+Average actor loss: -0.02644171193242073
+
+Iteration: 240
+Elapsed time-steps: 1160377
+Average Episodic Length: 66.151
+Average Episodic Returns: 20.661
+Average actor loss: -0.026594672352075577
+
+Iteration: 241
+Elapsed time-steps: 1165233
+Average Episodic Length: 66.521
+Average Episodic Returns: 20.279
+Average actor loss: -0.02575017139315605
+
+Iteration: 242
+Elapsed time-steps: 1170094
+Average Episodic Length: 64.813
+Average Episodic Returns: 22.829
+Average actor loss: -0.025813734158873558
+
+Iteration: 243
+Elapsed time-steps: 1174949
+Average Episodic Length: 63.882
+Average Episodic Returns: 21.305
+Average actor loss: -0.02597983181476593
+
+Iteration: 244
+Elapsed time-steps: 1179758
+Average Episodic Length: 64.12
+Average Episodic Returns: 21.095
+Average actor loss: -0.026232045143842697
+
+Iteration: 245
+Elapsed time-steps: 1184563
+Average Episodic Length: 63.224
+Average Episodic Returns: 21.26
+Average actor loss: -0.028094694018363953
+
+Iteration: 246
+Elapsed time-steps: 1189387
+Average Episodic Length: 62.649
+Average Episodic Returns: 19.871
+Average actor loss: -0.023813840001821518
+
+Iteration: 247
+Elapsed time-steps: 1194229
+Average Episodic Length: 59.778
+Average Episodic Returns: 20.074
+Average actor loss: -0.025999119505286217
+
+Iteration: 248
+Elapsed time-steps: 1199068
+Average Episodic Length: 63.671
+Average Episodic Returns: 21.024
+Average actor loss: -0.024550650268793106
+
+Iteration: 249
+Elapsed time-steps: 1203927
+Average Episodic Length: 63.934
+Average Episodic Returns: 21.273
+Average actor loss: -0.025409793481230736
+
+Iteration: 250
+Elapsed time-steps: 1208774
+Average Episodic Length: 62.948
+Average Episodic Returns: 19.996
+Average actor loss: -0.027464261278510094
+
+Iteration: 251
+Elapsed time-steps: 1213598
+Average Episodic Length: 61.846
+Average Episodic Returns: 18.21
+Average actor loss: -0.025459330528974533
+
+Iteration: 252
+Elapsed time-steps: 1218407
+Average Episodic Length: 63.276
+Average Episodic Returns: 20.97
+Average actor loss: -0.02576490305364132
+
+Iteration: 253
+Elapsed time-steps: 1223212
+Average Episodic Length: 63.224
+Average Episodic Returns: 21.244
+Average actor loss: -0.02602820098400116
+
+Iteration: 254
+Elapsed time-steps: 1228054
+Average Episodic Length: 63.711
+Average Episodic Returns: 22.278
+Average actor loss: -0.024905778467655182
+
+Iteration: 255
+Elapsed time-steps: 1232869
+Average Episodic Length: 63.355
+Average Episodic Returns: 21.713
+Average actor loss: -0.02483866736292839
+
+Iteration: 256
+Elapsed time-steps: 1237706
+Average Episodic Length: 64.493
+Average Episodic Returns: 19.249
+Average actor loss: -0.026290128007531166
+
+Iteration: 257
+Elapsed time-steps: 1242558
+Average Episodic Length: 64.693
+Average Episodic Returns: 22.641
+Average actor loss: -0.027206767350435257
+
+Iteration: 258
+Elapsed time-steps: 1247389
+Average Episodic Length: 65.284
+Average Episodic Returns: 23.692
+Average actor loss: -0.025063728913664818
+
+Iteration: 259
+Elapsed time-steps: 1252235
+Average Episodic Length: 65.486
+Average Episodic Returns: 20.799
+Average actor loss: -0.024854185059666634
+
+Iteration: 260
+Elapsed time-steps: 1257043
+Average Episodic Length: 62.442
+Average Episodic Returns: 20.102
+Average actor loss: -0.02550124190747738
+
+Iteration: 261
+Elapsed time-steps: 1261868
+Average Episodic Length: 64.333
+Average Episodic Returns: 20.427
+Average actor loss: -0.02651822194457054
+
+Iteration: 262
+Elapsed time-steps: 1266740
+Average Episodic Length: 65.838
+Average Episodic Returns: 23.373
+Average actor loss: -0.022793583571910858
+
+Iteration: 263
+Elapsed time-steps: 1271587
+Average Episodic Length: 65.5
+Average Episodic Returns: 21.987
+Average actor loss: -0.026931067928671837
+
+Iteration: 264
+Elapsed time-steps: 1276427
+Average Episodic Length: 64.533
+Average Episodic Returns: 20.697
+Average actor loss: -0.027939025312662125
+
+Iteration: 265
+Elapsed time-steps: 1281279
+Average Episodic Length: 64.693
+Average Episodic Returns: 20.191
+Average actor loss: -0.026609843596816063
+
+Iteration: 266
+Elapsed time-steps: 1286083
+Average Episodic Length: 61.59
+Average Episodic Returns: 21.254
+Average actor loss: -0.025732895359396935
+
+Iteration: 267
+Elapsed time-steps: 1290887
+Average Episodic Length: 63.211
+Average Episodic Returns: 21.55
+Average actor loss: -0.024588655680418015
+
+Iteration: 268
+Elapsed time-steps: 1295742
+Average Episodic Length: 64.733
+Average Episodic Returns: 22.102
+Average actor loss: -0.025692859664559364
+
+Iteration: 269
+Elapsed time-steps: 1300594
+Average Episodic Length: 64.693
+Average Episodic Returns: 22.34
+Average actor loss: -0.027372177690267563
+
+Iteration: 270
+Elapsed time-steps: 1305434
+Average Episodic Length: 63.684
+Average Episodic Returns: 21.551
+Average actor loss: -0.027283692732453346
+
+Iteration: 271
+Elapsed time-steps: 1310234
+Average Episodic Length: 64.0
+Average Episodic Returns: 22.339
+Average actor loss: -0.0269191712141037
+
+Iteration: 272
+Elapsed time-steps: 1315056
+Average Episodic Length: 64.293
+Average Episodic Returns: 19.997
+Average actor loss: -0.02700750157237053
+
+Iteration: 273
+Elapsed time-steps: 1319925
+Average Episodic Length: 62.423
+Average Episodic Returns: 20.982
+Average actor loss: -0.026259666308760643
+
+Iteration: 274
+Elapsed time-steps: 1324731
+Average Episodic Length: 64.08
+Average Episodic Returns: 22.349
+Average actor loss: -0.026759887114167213
+
+Iteration: 275
+Elapsed time-steps: 1329550
+Average Episodic Length: 61.0
+Average Episodic Returns: 19.458
+Average actor loss: -0.027998561039566994
+
+Iteration: 276
+Elapsed time-steps: 1334375
+Average Episodic Length: 62.662
+Average Episodic Returns: 18.611
+Average actor loss: -0.027972185984253883
+
+Iteration: 277
+Elapsed time-steps: 1339220
+Average Episodic Length: 62.922
+Average Episodic Returns: 20.991
+Average actor loss: -0.027284782379865646
+
+Iteration: 278
+Elapsed time-steps: 1344056
+Average Episodic Length: 62.805
+Average Episodic Returns: 21.952
+Average actor loss: -0.026519179344177246
+
+Iteration: 279
+Elapsed time-steps: 1348911
+Average Episodic Length: 63.052
+Average Episodic Returns: 21.992
+Average actor loss: -0.027140125632286072
+
+Iteration: 280
+Elapsed time-steps: 1353752
+Average Episodic Length: 62.064
+Average Episodic Returns: 22.625
+Average actor loss: -0.02599244937300682
+
+Iteration: 281
+Elapsed time-steps: 1358595
+Average Episodic Length: 62.09
+Average Episodic Returns: 22.223
+Average actor loss: -0.025314295664429665
+
+Iteration: 282
+Elapsed time-steps: 1363453
+Average Episodic Length: 63.091
+Average Episodic Returns: 21.045
+Average actor loss: -0.02457444928586483
+
+Iteration: 283
+Elapsed time-steps: 1368316
+Average Episodic Length: 63.156
+Average Episodic Returns: 18.887
+Average actor loss: -0.02662600949406624
+
+Iteration: 284
+Elapsed time-steps: 1373150
+Average Episodic Length: 64.453
+Average Episodic Returns: 23.668
+Average actor loss: -0.02612435817718506
+
+Iteration: 285
+Elapsed time-steps: 1377960
+Average Episodic Length: 59.383
+Average Episodic Returns: 19.988
+Average actor loss: -0.027476927265524864
+
+Iteration: 286
+Elapsed time-steps: 1382795
+Average Episodic Length: 62.792
+Average Episodic Returns: 21.576
+Average actor loss: -0.025336507707834244
+
+Iteration: 287
+Elapsed time-steps: 1387623
+Average Episodic Length: 61.897
+Average Episodic Returns: 20.866
+Average actor loss: -0.026074659079313278
+
+Iteration: 288
+Elapsed time-steps: 1392473
+Average Episodic Length: 61.392
+Average Episodic Returns: 20.877
+Average actor loss: -0.028199562802910805
+
+Iteration: 289
+Elapsed time-steps: 1397284
+Average Episodic Length: 60.138
+Average Episodic Returns: 20.786
+Average actor loss: -0.02830415405333042
+
+Iteration: 290
+Elapsed time-steps: 1402091
+Average Episodic Length: 60.848
+Average Episodic Returns: 22.052
+Average actor loss: -0.024494681507349014
+
+Iteration: 291
+Elapsed time-steps: 1406922
+Average Episodic Length: 60.388
+Average Episodic Returns: 20.171
+Average actor loss: -0.023788385093212128
+
+Iteration: 292
+Elapsed time-steps: 1411738
+Average Episodic Length: 60.962
+Average Episodic Returns: 23.242
+Average actor loss: -0.025786448270082474
+
+Iteration: 293
+Elapsed time-steps: 1416544
+Average Episodic Length: 60.075
+Average Episodic Returns: 19.675
+Average actor loss: -0.026966774836182594
+
+Iteration: 294
+Elapsed time-steps: 1421374
+Average Episodic Length: 61.139
+Average Episodic Returns: 21.365
+Average actor loss: -0.026355838403105736
+
+Iteration: 295
+Elapsed time-steps: 1426177
+Average Episodic Length: 62.377
+Average Episodic Returns: 20.717
+Average actor loss: -0.028007838875055313
+
+Iteration: 296
+Elapsed time-steps: 1431017
+Average Episodic Length: 62.857
+Average Episodic Returns: 22.873
+Average actor loss: -0.025049006566405296
+
+Iteration: 297
+Elapsed time-steps: 1435832
+Average Episodic Length: 60.188
+Average Episodic Returns: 21.032
+Average actor loss: -0.02512427233159542
+
+Iteration: 298
+Elapsed time-steps: 1440663
+Average Episodic Length: 61.936
+Average Episodic Returns: 21.98
+Average actor loss: -0.026045525446534157
+
+Iteration: 299
+Elapsed time-steps: 1445511
+Average Episodic Length: 62.154
+Average Episodic Returns: 20.936
+Average actor loss: -0.02653389237821102
+
+Iteration: 300
+Elapsed time-steps: 1450366
+Average Episodic Length: 61.456
+Average Episodic Returns: 20.663
+Average actor loss: -0.02630506455898285
+
+Iteration: 301
+Elapsed time-steps: 1455184
+Average Episodic Length: 62.571
+Average Episodic Returns: 20.08
+Average actor loss: -0.028926288709044456
+
+Iteration: 302
+Elapsed time-steps: 1460014
+Average Episodic Length: 61.139
+Average Episodic Returns: 18.818
+Average actor loss: -0.025179293006658554
+
+Iteration: 303
+Elapsed time-steps: 1464822
+Average Episodic Length: 62.442
+Average Episodic Returns: 21.069
+Average actor loss: -0.02597658708691597
+
+Iteration: 304
+Elapsed time-steps: 1469677
+Average Episodic Length: 59.938
+Average Episodic Returns: 19.474
+Average actor loss: -0.02685602381825447
+
+Iteration: 305
+Elapsed time-steps: 1474489
+Average Episodic Length: 62.494
+Average Episodic Returns: 22.784
+Average actor loss: -0.027541017159819603
+
+Iteration: 306
+Elapsed time-steps: 1479309
+Average Episodic Length: 61.795
+Average Episodic Returns: 20.11
+Average actor loss: -0.027381500229239464
+
+Iteration: 307
+Elapsed time-steps: 1484158
+Average Episodic Length: 62.167
+Average Episodic Returns: 20.965
+Average actor loss: -0.028383344411849976
+
+Iteration: 308
+Elapsed time-steps: 1489017
+Average Episodic Length: 62.295
+Average Episodic Returns: 21.126
+Average actor loss: -0.026567567139863968
+
+Iteration: 309
+Elapsed time-steps: 1493821
+Average Episodic Length: 61.59
+Average Episodic Returns: 19.497
+Average actor loss: -0.026457328349351883
+
+Iteration: 310
+Elapsed time-steps: 1498669
+Average Episodic Length: 62.961
+Average Episodic Returns: 20.998
+Average actor loss: -0.028368469327688217
+
+Iteration: 311
+Elapsed time-steps: 1503518
+Average Episodic Length: 62.974
+Average Episodic Returns: 18.678
+Average actor loss: -0.026122191920876503
+
+Iteration: 312
+Elapsed time-steps: 1508349
+Average Episodic Length: 61.936
+Average Episodic Returns: 22.052
+Average actor loss: -0.0284184068441391
+
+Iteration: 313
+Elapsed time-steps: 1513170
+Average Episodic Length: 61.025
+Average Episodic Returns: 19.338
+Average actor loss: -0.02784840390086174
+
+Iteration: 314
+Elapsed time-steps: 1518014
+Average Episodic Length: 61.316
+Average Episodic Returns: 18.972
+Average actor loss: -0.026822099462151527
+
+Iteration: 315
+Elapsed time-steps: 1522856
+Average Episodic Length: 62.883
+Average Episodic Returns: 21.093
+Average actor loss: -0.026631835848093033
+
+Iteration: 316
+Elapsed time-steps: 1527693
+Average Episodic Length: 63.645
+Average Episodic Returns: 23.058
+Average actor loss: -0.028910890221595764
+
+Iteration: 317
+Elapsed time-steps: 1532507
+Average Episodic Length: 63.342
+Average Episodic Returns: 21.992
+Average actor loss: -0.027307754382491112
+
+Iteration: 318
+Elapsed time-steps: 1537313
+Average Episodic Length: 62.416
+Average Episodic Returns: 21.8
+Average actor loss: -0.026443812996149063
+
+Iteration: 319
+Elapsed time-steps: 1542164
+Average Episodic Length: 61.405
+Average Episodic Returns: 20.707
+Average actor loss: -0.026342278346419334
+
+Iteration: 320
+Elapsed time-steps: 1546992
+Average Episodic Length: 61.897
+Average Episodic Returns: 20.694
+Average actor loss: -0.02754834294319153
+
+Iteration: 321
+Elapsed time-steps: 1551816
+Average Episodic Length: 62.649
+Average Episodic Returns: 21.406
+Average actor loss: -0.025972601026296616
+
+Iteration: 322
+Elapsed time-steps: 1556638
+Average Episodic Length: 61.038
+Average Episodic Returns: 19.917
+Average actor loss: -0.02848493494093418
+
+Iteration: 323
+Elapsed time-steps: 1561451
+Average Episodic Length: 62.506
+Average Episodic Returns: 21.119
+Average actor loss: -0.02632172964513302
+
+Iteration: 324
+Elapsed time-steps: 1566254
+Average Episodic Length: 62.377
+Average Episodic Returns: 20.768
+Average actor loss: -0.027863070368766785
+
+Iteration: 325
+Elapsed time-steps: 1571128
+Average Episodic Length: 63.299
+Average Episodic Returns: 24.062
+Average actor loss: -0.026927117258310318
+
+Iteration: 326
+Elapsed time-steps: 1575950
+Average Episodic Length: 61.821
+Average Episodic Returns: 20.782
+Average actor loss: -0.027090203016996384
+
+Iteration: 327
+Elapsed time-steps: 1580803
+Average Episodic Length: 62.218
+Average Episodic Returns: 21.226
+Average actor loss: -0.02617783471941948
+
+Iteration: 328
+Elapsed time-steps: 1585643
+Average Episodic Length: 63.684
+Average Episodic Returns: 23.09
+Average actor loss: -0.025671059265732765
+
+Iteration: 329
+Elapsed time-steps: 1590509
+Average Episodic Length: 64.88
+Average Episodic Returns: 23.701
+Average actor loss: -0.02494961768388748
+
+Iteration: 330
+Elapsed time-steps: 1595350
+Average Episodic Length: 62.064
+Average Episodic Returns: 20.39
+Average actor loss: -0.028035899624228477
+
+Iteration: 331
+Elapsed time-steps: 1600193
+Average Episodic Length: 62.896
+Average Episodic Returns: 22.006
+Average actor loss: -0.02527785860002041
+
+Iteration: 332
+Elapsed time-steps: 1605019
+Average Episodic Length: 64.347
+Average Episodic Returns: 22.501
+Average actor loss: -0.027229037135839462
+
+Iteration: 333
+Elapsed time-steps: 1609871
+Average Episodic Length: 63.013
+Average Episodic Returns: 20.095
+Average actor loss: -0.027616459876298904
+
+Iteration: 334
+Elapsed time-steps: 1614711
+Average Episodic Length: 62.051
+Average Episodic Returns: 19.656
+Average actor loss: -0.026842975988984108
+
+Iteration: 335
+Elapsed time-steps: 1619570
+Average Episodic Length: 65.662
+Average Episodic Returns: 22.742
+Average actor loss: -0.026050370186567307
+
+Iteration: 336
+Elapsed time-steps: 1624380
+Average Episodic Length: 61.667
+Average Episodic Returns: 21.967
+Average actor loss: -0.027098897844552994
+
+Iteration: 337
+Elapsed time-steps: 1629224
+Average Episodic Length: 59.802
+Average Episodic Returns: 20.941
+Average actor loss: -0.02726312354207039
+
+Iteration: 338
+Elapsed time-steps: 1634061
+Average Episodic Length: 62.013
+Average Episodic Returns: 21.653
+Average actor loss: -0.02607414498925209
+
+Iteration: 339
+Elapsed time-steps: 1638862
+Average Episodic Length: 61.551
+Average Episodic Returns: 19.346
+Average actor loss: -0.026744911447167397
+
+Iteration: 340
+Elapsed time-steps: 1643673
+Average Episodic Length: 63.303
+Average Episodic Returns: 21.303
+Average actor loss: -0.025786414742469788
+
+Iteration: 341
+Elapsed time-steps: 1648496
+Average Episodic Length: 60.288
+Average Episodic Returns: 20.172
+Average actor loss: -0.024244368076324463
+
+Iteration: 342
+Elapsed time-steps: 1653331
+Average Episodic Length: 63.618
+Average Episodic Returns: 21.017
+Average actor loss: -0.026929933577775955
+
+Iteration: 343
+Elapsed time-steps: 1658137
+Average Episodic Length: 62.416
+Average Episodic Returns: 21.035
+Average actor loss: -0.02872292697429657
+
+Iteration: 344
+Elapsed time-steps: 1662965
+Average Episodic Length: 65.243
+Average Episodic Returns: 23.665
+Average actor loss: -0.02508612535893917
+
+Iteration: 345
+Elapsed time-steps: 1667808
+Average Episodic Length: 62.896
+Average Episodic Returns: 21.819
+Average actor loss: -0.025586536154150963
+
+Iteration: 346
+Elapsed time-steps: 1672635
+Average Episodic Length: 61.885
+Average Episodic Returns: 19.617
+Average actor loss: -0.028169523924589157
+
+Iteration: 347
+Elapsed time-steps: 1677458
+Average Episodic Length: 64.307
+Average Episodic Returns: 22.081
+Average actor loss: -0.02736010029911995
+
+Iteration: 348
+Elapsed time-steps: 1682287
+Average Episodic Length: 62.714
+Average Episodic Returns: 21.089
+Average actor loss: -0.027052760124206543
+
+Iteration: 349
+Elapsed time-steps: 1687137
+Average Episodic Length: 62.987
+Average Episodic Returns: 20.293
+Average actor loss: -0.02643613889813423
+
+Iteration: 350
+Elapsed time-steps: 1691946
+Average Episodic Length: 63.276
+Average Episodic Returns: 23.039
+Average actor loss: -0.027324233204126358
+
+Iteration: 351
+Elapsed time-steps: 1696791
+Average Episodic Length: 63.75
+Average Episodic Returns: 21.598
+Average actor loss: -0.02785649336874485
+
+Iteration: 352
+Elapsed time-steps: 1701600
+Average Episodic Length: 60.873
+Average Episodic Returns: 19.569
+Average actor loss: -0.027927642688155174
+
+Iteration: 353
+Elapsed time-steps: 1706437
+Average Episodic Length: 63.645
+Average Episodic Returns: 21.366
+Average actor loss: -0.02731407806277275
+
+Iteration: 354
+Elapsed time-steps: 1711244
+Average Episodic Length: 64.093
+Average Episodic Returns: 21.774
+Average actor loss: -0.027733802795410156
+
+Iteration: 355
+Elapsed time-steps: 1716075
+Average Episodic Length: 62.74
+Average Episodic Returns: 20.03
+Average actor loss: -0.02751731500029564
+
+Iteration: 356
+Elapsed time-steps: 1720899
+Average Episodic Length: 63.474
+Average Episodic Returns: 21.566
+Average actor loss: -0.02618824504315853
+
+Iteration: 357
+Elapsed time-steps: 1725707
+Average Episodic Length: 63.263
+Average Episodic Returns: 23.179
+Average actor loss: -0.02611994370818138
+
+Iteration: 358
+Elapsed time-steps: 1730546
+Average Episodic Length: 62.844
+Average Episodic Returns: 20.222
+Average actor loss: -0.02745889499783516
+
+Iteration: 359
+Elapsed time-steps: 1735352
+Average Episodic Length: 62.416
+Average Episodic Returns: 20.119
+Average actor loss: -0.026282185688614845
+
+Iteration: 360
+Elapsed time-steps: 1740200
+Average Episodic Length: 62.961
+Average Episodic Returns: 21.804
+Average actor loss: -0.027090316638350487
+
+Iteration: 361
+Elapsed time-steps: 1745027
+Average Episodic Length: 61.885
+Average Episodic Returns: 20.286
+Average actor loss: -0.02705037035048008
+
+Iteration: 362
+Elapsed time-steps: 1749840
+Average Episodic Length: 61.705
+Average Episodic Returns: 21.081
+Average actor loss: -0.027862638235092163
+
+Iteration: 363
+Elapsed time-steps: 1754706
+Average Episodic Length: 63.195
+Average Episodic Returns: 19.663
+Average actor loss: -0.026597728952765465
+
+Iteration: 364
+Elapsed time-steps: 1759521
+Average Episodic Length: 62.532
+Average Episodic Returns: 22.721
+Average actor loss: -0.025702860206365585
+
+Iteration: 365
+Elapsed time-steps: 1764383
+Average Episodic Length: 62.333
+Average Episodic Returns: 19.331
+Average actor loss: -0.025733400136232376
+
+Iteration: 366
+Elapsed time-steps: 1769211
+Average Episodic Length: 61.114
+Average Episodic Returns: 20.769
+Average actor loss: -0.027112439274787903
+
+Iteration: 367
+Elapsed time-steps: 1774054
+Average Episodic Length: 61.304
+Average Episodic Returns: 20.374
+Average actor loss: -0.028183970600366592
+
+Iteration: 368
+Elapsed time-steps: 1778872
+Average Episodic Length: 63.395
+Average Episodic Returns: 22.161
+Average actor loss: -0.02696901559829712
+
+Iteration: 369
+Elapsed time-steps: 1783680
+Average Episodic Length: 63.263
+Average Episodic Returns: 20.895
+Average actor loss: -0.028849270194768906
+
+Iteration: 370
+Elapsed time-steps: 1788521
+Average Episodic Length: 64.547
+Average Episodic Returns: 20.741
+Average actor loss: -0.0265912264585495
+
+Iteration: 371
+Elapsed time-steps: 1793345
+Average Episodic Length: 64.32
+Average Episodic Returns: 19.973
+Average actor loss: -0.026751885190606117
+
+Iteration: 372
+Elapsed time-steps: 1798185
+Average Episodic Length: 64.533
+Average Episodic Returns: 20.448
+Average actor loss: -0.025490138679742813
+
+Iteration: 373
+Elapsed time-steps: 1802996
+Average Episodic Length: 64.147
+Average Episodic Returns: 19.617
+Average actor loss: -0.02732623741030693
+
+Iteration: 374
+Elapsed time-steps: 1807820
+Average Episodic Length: 65.189
+Average Episodic Returns: 22.916
+Average actor loss: -0.026286344975233078
+
+Iteration: 375
+Elapsed time-steps: 1812636
+Average Episodic Length: 64.213
+Average Episodic Returns: 20.959
+Average actor loss: -0.026820238679647446
+
+Iteration: 376
+Elapsed time-steps: 1817476
+Average Episodic Length: 62.051
+Average Episodic Returns: 20.086
+Average actor loss: -0.025236105546355247
+
+Iteration: 377
+Elapsed time-steps: 1822276
+Average Episodic Length: 64.0
+Average Episodic Returns: 19.511
+Average actor loss: -0.02663670852780342
+
+Iteration: 378
+Elapsed time-steps: 1827076
+Average Episodic Length: 62.338
+Average Episodic Returns: 23.588
+Average actor loss: -0.02563878335058689
+
+Iteration: 379
+Elapsed time-steps: 1831884
+Average Episodic Length: 64.107
+Average Episodic Returns: 19.304
+Average actor loss: -0.02552451193332672
+
+Iteration: 380
+Elapsed time-steps: 1836699
+Average Episodic Length: 61.731
+Average Episodic Returns: 20.666
+Average actor loss: -0.025723028928041458
+
+Iteration: 381
+Elapsed time-steps: 1841561
+Average Episodic Length: 63.143
+Average Episodic Returns: 21.984
+Average actor loss: -0.02663932740688324
+
+Iteration: 382
+Elapsed time-steps: 1846400
+Average Episodic Length: 63.671
+Average Episodic Returns: 20.979
+Average actor loss: -0.026601770892739296
+
+Iteration: 383
+Elapsed time-steps: 1851259
+Average Episodic Length: 61.506
+Average Episodic Returns: 20.736
+Average actor loss: -0.027656560763716698
+
+Iteration: 384
+Elapsed time-steps: 1856119
+Average Episodic Length: 63.947
+Average Episodic Returns: 22.561
+Average actor loss: -0.025270696729421616
+
+Iteration: 385
+Elapsed time-steps: 1860968
+Average Episodic Length: 60.612
+Average Episodic Returns: 18.494
+Average actor loss: -0.0269779022783041
+
+Iteration: 386
+Elapsed time-steps: 1865820
+Average Episodic Length: 62.205
+Average Episodic Returns: 18.061
+Average actor loss: -0.027376871556043625
+
+Iteration: 387
+Elapsed time-steps: 1870669
+Average Episodic Length: 60.612
+Average Episodic Returns: 17.462
+Average actor loss: -0.027539486065506935
+
+Iteration: 388
+Elapsed time-steps: 1875533
+Average Episodic Length: 62.359
+Average Episodic Returns: 20.391
+Average actor loss: -0.027480527758598328
+
+Iteration: 389
+Elapsed time-steps: 1880358
+Average Episodic Length: 62.662
+Average Episodic Returns: 22.434
+Average actor loss: -0.028372853994369507
+
+Iteration: 390
+Elapsed time-steps: 1885192
+Average Episodic Length: 61.19
+Average Episodic Returns: 20.852
+Average actor loss: -0.026993747800588608
+
+Iteration: 391
+Elapsed time-steps: 1890041
+Average Episodic Length: 60.612
+Average Episodic Returns: 19.95
+Average actor loss: -0.025557469576597214
+
+Iteration: 392
+Elapsed time-steps: 1894856
+Average Episodic Length: 62.532
+Average Episodic Returns: 22.406
+Average actor loss: -0.02726338431239128
+
+Iteration: 393
+Elapsed time-steps: 1899665
+Average Episodic Length: 62.455
+Average Episodic Returns: 21.955
+Average actor loss: -0.02700589969754219
+
+Iteration: 394
+Elapsed time-steps: 1904502
+Average Episodic Length: 64.493
+Average Episodic Returns: 24.222
+Average actor loss: -0.025674518197774887
+
+Iteration: 395
+Elapsed time-steps: 1909343
+Average Episodic Length: 63.697
+Average Episodic Returns: 20.874
+Average actor loss: -0.028729578480124474
+
+Iteration: 396
+Elapsed time-steps: 1914147
+Average Episodic Length: 62.39
+Average Episodic Returns: 19.782
+Average actor loss: -0.028125416487455368
+
+Iteration: 397
+Elapsed time-steps: 1919013
+Average Episodic Length: 60.825
+Average Episodic Returns: 18.833
+Average actor loss: -0.02736453153192997
+
+Iteration: 398
+Elapsed time-steps: 1923821
+Average Episodic Length: 60.861
+Average Episodic Returns: 20.611
+Average actor loss: -0.02440953440964222
+
+Iteration: 399
+Elapsed time-steps: 1928665
+Average Episodic Length: 62.103
+Average Episodic Returns: 17.928
+Average actor loss: -0.02766064926981926
+
+Iteration: 400
+Elapsed time-steps: 1933470
+Average Episodic Length: 63.224
+Average Episodic Returns: 21.583
+Average actor loss: -0.028791967779397964
+
+Iteration: 401
+Elapsed time-steps: 1938318
+Average Episodic Length: 62.961
+Average Episodic Returns: 20.52
+Average actor loss: -0.027191083878278732
+
+Iteration: 402
+Elapsed time-steps: 1943158
+Average Episodic Length: 63.684
+Average Episodic Returns: 20.952
+Average actor loss: -0.02504749223589897
+
+Iteration: 403
+Elapsed time-steps: 1947981
+Average Episodic Length: 61.051
+Average Episodic Returns: 20.968
+Average actor loss: -0.02506846748292446
+
+Iteration: 404
+Elapsed time-steps: 1952839
+Average Episodic Length: 63.921
+Average Episodic Returns: 22.584
+Average actor loss: -0.024653833359479904
+
+Iteration: 405
+Elapsed time-steps: 1957707
+Average Episodic Length: 64.053
+Average Episodic Returns: 19.158
+Average actor loss: -0.027181047946214676
+
+Iteration: 406
+Elapsed time-steps: 1962534
+Average Episodic Length: 64.36
+Average Episodic Returns: 22.895
+Average actor loss: -0.02683871053159237
+
+Iteration: 407
+Elapsed time-steps: 1967386
+Average Episodic Length: 62.205
+Average Episodic Returns: 19.031
+Average actor loss: -0.027407607063651085
+
+Iteration: 408
+Elapsed time-steps: 1972220
+Average Episodic Length: 61.974
+Average Episodic Returns: 21.139
+Average actor loss: -0.02624431625008583
+
+Iteration: 409
+Elapsed time-steps: 1977050
+Average Episodic Length: 61.923
+Average Episodic Returns: 20.928
+Average actor loss: -0.026417504996061325
+
+Iteration: 410
+Elapsed time-steps: 1981851
+Average Episodic Length: 60.012
+Average Episodic Returns: 19.554
+Average actor loss: -0.026820633560419083
+
+Iteration: 411
+Elapsed time-steps: 1986695
+Average Episodic Length: 61.316
+Average Episodic Returns: 20.117
+Average actor loss: -0.026754628866910934
+
+Iteration: 412
+Elapsed time-steps: 1991506
+Average Episodic Length: 64.147
+Average Episodic Returns: 22.781
+Average actor loss: -0.024775849655270576
+
+Iteration: 413
+Elapsed time-steps: 1996326
+Average Episodic Length: 64.267
+Average Episodic Returns: 22.186
+Average actor loss: -0.025754496455192566
+
+Iteration: 414
+Elapsed time-steps: 2001130
+Average Episodic Length: 64.053
+Average Episodic Returns: 23.483
+Average actor loss: -0.02476225420832634
+
+Iteration: 415
+Elapsed time-steps: 2005934
+Average Episodic Length: 63.211
+Average Episodic Returns: 22.347
+Average actor loss: -0.02563950978219509
+
+Iteration: 416
+Elapsed time-steps: 2010774
+Average Episodic Length: 62.857
+Average Episodic Returns: 21.789
+Average actor loss: -0.028265783563256264
+
+Iteration: 417
+Elapsed time-steps: 2015609
+Average Episodic Length: 61.203
+Average Episodic Returns: 19.457
+Average actor loss: -0.02629547193646431
+
+Iteration: 418
+Elapsed time-steps: 2020456
+Average Episodic Length: 62.948
+Average Episodic Returns: 22.743
+Average actor loss: -0.0251327995210886
+
+Iteration: 419
+Elapsed time-steps: 2025306
+Average Episodic Length: 61.392
+Average Episodic Returns: 18.201
+Average actor loss: -0.026071559637784958
+
+Iteration: 420
+Elapsed time-steps: 2030144
+Average Episodic Length: 61.241
+Average Episodic Returns: 20.913
+Average actor loss: -0.026335667818784714
+
+Iteration: 421
+Elapsed time-steps: 2034969
+Average Episodic Length: 63.487
+Average Episodic Returns: 22.16
+Average actor loss: -0.027225011959671974
+
+Iteration: 422
+Elapsed time-steps: 2039831
+Average Episodic Length: 63.143
+Average Episodic Returns: 20.672
+Average actor loss: -0.02693311870098114
+
+Iteration: 423
+Elapsed time-steps: 2044688
+Average Episodic Length: 61.481
+Average Episodic Returns: 21.77
+Average actor loss: -0.024864252656698227
+
+Iteration: 424
+Elapsed time-steps: 2049493
+Average Episodic Length: 62.403
+Average Episodic Returns: 21.045
+Average actor loss: -0.027800146490335464
+
+Iteration: 425
+Elapsed time-steps: 2054331
+Average Episodic Length: 64.507
+Average Episodic Returns: 21.776
+Average actor loss: -0.02764807641506195
+
+Iteration: 426
+Elapsed time-steps: 2059151
+Average Episodic Length: 62.597
+Average Episodic Returns: 21.501
+Average actor loss: -0.025888856500387192
+
+Iteration: 427
+Elapsed time-steps: 2063992
+Average Episodic Length: 64.547
+Average Episodic Returns: 22.771
+Average actor loss: -0.02494588866829872
+
+Iteration: 428
+Elapsed time-steps: 2068825
+Average Episodic Length: 62.766
+Average Episodic Returns: 21.94
+Average actor loss: -0.02451855130493641
+
+Iteration: 429
+Elapsed time-steps: 2073630
+Average Episodic Length: 64.067
+Average Episodic Returns: 23.324
+Average actor loss: -0.026012981310486794
+
+Iteration: 430
+Elapsed time-steps: 2078474
+Average Episodic Length: 62.103
+Average Episodic Returns: 21.14
+Average actor loss: -0.023133454844355583
+
+Iteration: 431
+Elapsed time-steps: 2083340
+Average Episodic Length: 64.026
+Average Episodic Returns: 20.042
+Average actor loss: -0.025724012404680252
+
+Iteration: 432
+Elapsed time-steps: 2088157
+Average Episodic Length: 64.227
+Average Episodic Returns: 23.651
+Average actor loss: -0.025120925158262253
+
+Iteration: 433
+Elapsed time-steps: 2092996
+Average Episodic Length: 64.52
+Average Episodic Returns: 21.649
+Average actor loss: -0.02566438913345337
+
+Iteration: 434
+Elapsed time-steps: 2097818
+Average Episodic Length: 63.447
+Average Episodic Returns: 23.103
+Average actor loss: -0.0259384848177433
+
+Iteration: 435
+Elapsed time-steps: 2102658
+Average Episodic Length: 64.533
+Average Episodic Returns: 21.759
+Average actor loss: -0.02680019661784172
+
+Iteration: 436
+Elapsed time-steps: 2107465
+Average Episodic Length: 64.093
+Average Episodic Returns: 23.571
+Average actor loss: -0.026120295748114586
+
+Iteration: 437
+Elapsed time-steps: 2112281
+Average Episodic Length: 62.545
+Average Episodic Returns: 21.45
+Average actor loss: -0.026013994589447975
+
+Iteration: 438
+Elapsed time-steps: 2117094
+Average Episodic Length: 64.173
+Average Episodic Returns: 22.452
+Average actor loss: -0.026361802592873573
+
+Iteration: 439
+Elapsed time-steps: 2121939
+Average Episodic Length: 63.75
+Average Episodic Returns: 18.472
+Average actor loss: -0.026180174201726913
+
+Iteration: 440
+Elapsed time-steps: 2126767
+Average Episodic Length: 63.526
+Average Episodic Returns: 20.842
+Average actor loss: -0.027232274413108826
+
+Iteration: 441
+Elapsed time-steps: 2131570
+Average Episodic Length: 62.377
+Average Episodic Returns: 23.305
+Average actor loss: -0.02690991759300232
+
+Iteration: 442
+Elapsed time-steps: 2136392
+Average Episodic Length: 62.623
+Average Episodic Returns: 21.461
+Average actor loss: -0.027956154197454453
+
+Iteration: 443
+Elapsed time-steps: 2141238
+Average Episodic Length: 62.935
+Average Episodic Returns: 20.441
+Average actor loss: -0.024868104606866837
+
+Iteration: 444
+Elapsed time-steps: 2146085
+Average Episodic Length: 63.776
+Average Episodic Returns: 19.34
+Average actor loss: -0.026060054078698158
+
+Iteration: 445
+Elapsed time-steps: 2150889
+Average Episodic Length: 65.808
+Average Episodic Returns: 23.662
+Average actor loss: -0.026786696165800095
+
+Iteration: 446
+Elapsed time-steps: 2155731
+Average Episodic Length: 62.883
+Average Episodic Returns: 20.372
+Average actor loss: -0.02503662370145321
+
+Iteration: 447
+Elapsed time-steps: 2160573
+Average Episodic Length: 62.077
+Average Episodic Returns: 19.295
+Average actor loss: -0.02759561501443386
+
+Iteration: 448
+Elapsed time-steps: 2165390
+Average Episodic Length: 60.975
+Average Episodic Returns: 18.887
+Average actor loss: -0.027439529076218605
+
+Iteration: 449
+Elapsed time-steps: 2170199
+Average Episodic Length: 62.455
+Average Episodic Returns: 21.669
+Average actor loss: -0.025593217462301254
+
+Iteration: 450
+Elapsed time-steps: 2175066
+Average Episodic Length: 63.208
+Average Episodic Returns: 22.476
+Average actor loss: -0.024871807545423508
+
+Iteration: 451
+Elapsed time-steps: 2179879
+Average Episodic Length: 64.173
+Average Episodic Returns: 21.47
+Average actor loss: -0.02563643828034401
+
+Iteration: 452
+Elapsed time-steps: 2184769
+Average Episodic Length: 62.692
+Average Episodic Returns: 21.363
+Average actor loss: -0.02589164301753044
+
+Iteration: 453
+Elapsed time-steps: 2189570
+Average Episodic Length: 61.551
+Average Episodic Returns: 19.363
+Average actor loss: -0.026753544807434082
+
+Iteration: 454
+Elapsed time-steps: 2194425
+Average Episodic Length: 61.456
+Average Episodic Returns: 16.458
+Average actor loss: -0.027250632643699646
+
+Iteration: 455
+Elapsed time-steps: 2199230
+Average Episodic Length: 61.603
+Average Episodic Returns: 17.855
+Average actor loss: -0.027784323319792747
+
+Iteration: 456
+Elapsed time-steps: 2204035
+Average Episodic Length: 61.603
+Average Episodic Returns: 20.829
+Average actor loss: -0.027012091130018234
+
+Iteration: 457
+Elapsed time-steps: 2208862
+Average Episodic Length: 67.042
+Average Episodic Returns: 24.151
+Average actor loss: -0.029041046276688576
+
+Iteration: 458
+Elapsed time-steps: 2213701
+Average Episodic Length: 63.671
+Average Episodic Returns: 22.367
+Average actor loss: -0.02522445097565651
+
+Iteration: 459
+Elapsed time-steps: 2218531
+Average Episodic Length: 61.923
+Average Episodic Returns: 21.295
+Average actor loss: -0.025992777198553085
+
+Iteration: 460
+Elapsed time-steps: 2223368
+Average Episodic Length: 62.013
+Average Episodic Returns: 19.695
+Average actor loss: -0.027855074033141136
+
+Iteration: 461
+Elapsed time-steps: 2228208
+Average Episodic Length: 61.266
+Average Episodic Returns: 21.193
+Average actor loss: -0.028326040133833885
+
+Iteration: 462
+Elapsed time-steps: 2233059
+Average Episodic Length: 62.192
+Average Episodic Returns: 21.071
+Average actor loss: -0.02911832556128502
+
+Iteration: 463
+Elapsed time-steps: 2237889
+Average Episodic Length: 61.139
+Average Episodic Returns: 21.746
+Average actor loss: -0.026491951197385788
+
+Iteration: 464
+Elapsed time-steps: 2242726
+Average Episodic Length: 63.645
+Average Episodic Returns: 21.675
+Average actor loss: -0.025307830423116684
+
+Iteration: 465
+Elapsed time-steps: 2247534
+Average Episodic Length: 61.641
+Average Episodic Returns: 18.844
+Average actor loss: -0.02801700495183468
+
+Iteration: 466
+Elapsed time-steps: 2252377
+Average Episodic Length: 62.896
+Average Episodic Returns: 21.161
+Average actor loss: -0.028437670320272446
+
+Iteration: 467
+Elapsed time-steps: 2257213
+Average Episodic Length: 62.0
+Average Episodic Returns: 19.906
+Average actor loss: -0.026329362764954567
+
+Iteration: 468
+Elapsed time-steps: 2262071
+Average Episodic Length: 63.091
+Average Episodic Returns: 23.722
+Average actor loss: -0.026108015328645706
+
+Iteration: 469
+Elapsed time-steps: 2266903
+Average Episodic Length: 65.297
+Average Episodic Returns: 23.925
+Average actor loss: -0.02703711949288845
+
+Iteration: 470
+Elapsed time-steps: 2271751
+Average Episodic Length: 63.789
+Average Episodic Returns: 20.34
+Average actor loss: -0.025127286091446877
+
+Iteration: 471
+Elapsed time-steps: 2276588
+Average Episodic Length: 63.645
+Average Episodic Returns: 20.004
+Average actor loss: -0.02963186427950859
+
+Iteration: 472
+Elapsed time-steps: 2281392
+Average Episodic Length: 62.39
+Average Episodic Returns: 21.776
+Average actor loss: -0.0271118376404047
+
+Iteration: 473
+Elapsed time-steps: 2286221
+Average Episodic Length: 61.91
+Average Episodic Returns: 20.295
+Average actor loss: -0.02731335163116455
+
+Iteration: 474
+Elapsed time-steps: 2291030
+Average Episodic Length: 64.986
+Average Episodic Returns: 23.268
+Average actor loss: -0.025217264890670776
+
+Iteration: 475
+Elapsed time-steps: 2295891
+Average Episodic Length: 61.532
+Average Episodic Returns: 19.722
+Average actor loss: -0.026732996106147766
+
+Iteration: 476
+Elapsed time-steps: 2300751
+Average Episodic Length: 60.75
+Average Episodic Returns: 18.668
+Average actor loss: -0.024721570312976837
+
+Iteration: 477
+Elapsed time-steps: 2305587
+Average Episodic Length: 59.704
+Average Episodic Returns: 19.416
+Average actor loss: -0.02631775103509426
+
+Iteration: 478
+Elapsed time-steps: 2310429
+Average Episodic Length: 62.883
+Average Episodic Returns: 22.214
+Average actor loss: -0.028016040101647377
+
+Iteration: 479
+Elapsed time-steps: 2315239
+Average Episodic Length: 62.468
+Average Episodic Returns: 19.179
+Average actor loss: -0.027187908068299294
+
+Iteration: 480
+Elapsed time-steps: 2320049
+Average Episodic Length: 63.289
+Average Episodic Returns: 19.62
+Average actor loss: -0.027367468923330307
+
+Iteration: 481
+Elapsed time-steps: 2324921
+Average Episodic Length: 62.462
+Average Episodic Returns: 20.981
+Average actor loss: -0.028040027245879173
+
+Iteration: 482
+Elapsed time-steps: 2329790
+Average Episodic Length: 60.862
+Average Episodic Returns: 17.524
+Average actor loss: -0.02634499967098236
+
+Iteration: 483
+Elapsed time-steps: 2334595
+Average Episodic Length: 60.823
+Average Episodic Returns: 18.647
+Average actor loss: -0.02636709250509739
+
+Iteration: 484
+Elapsed time-steps: 2339462
+Average Episodic Length: 62.397
+Average Episodic Returns: 20.888
+Average actor loss: -0.027237866073846817
+
+Iteration: 485
+Elapsed time-steps: 2344287
+Average Episodic Length: 62.662
+Average Episodic Returns: 22.677
+Average actor loss: -0.02572936750948429
+
+Iteration: 486
+Elapsed time-steps: 2349132
+Average Episodic Length: 62.115
+Average Episodic Returns: 20.574
+Average actor loss: -0.026914456859230995
+
+Iteration: 487
+Elapsed time-steps: 2353955
+Average Episodic Length: 61.051
+Average Episodic Returns: 19.746
+Average actor loss: -0.027016010135412216
+
+Iteration: 488
+Elapsed time-steps: 2358765
+Average Episodic Length: 60.886
+Average Episodic Returns: 19.873
+Average actor loss: -0.027095988392829895
+
+Iteration: 489
+Elapsed time-steps: 2363579
+Average Episodic Length: 59.432
+Average Episodic Returns: 16.428
+Average actor loss: -0.028554711490869522
+
+Iteration: 490
+Elapsed time-steps: 2368443
+Average Episodic Length: 63.169
+Average Episodic Returns: 22.12
+Average actor loss: -0.026843596249818802
+
+Iteration: 491
+Elapsed time-steps: 2373249
+Average Episodic Length: 61.615
+Average Episodic Returns: 19.699
+Average actor loss: -0.02595391497015953
+
+Iteration: 492
+Elapsed time-steps: 2378072
+Average Episodic Length: 62.636
+Average Episodic Returns: 21.067
+Average actor loss: -0.02697303518652916
+
+Iteration: 493
+Elapsed time-steps: 2382894
+Average Episodic Length: 63.447
+Average Episodic Returns: 21.723
+Average actor loss: -0.027061473578214645
+
+Iteration: 494
+Elapsed time-steps: 2387731
+Average Episodic Length: 60.462
+Average Episodic Returns: 18.62
+Average actor loss: -0.026538625359535217
+
+Iteration: 495
+Elapsed time-steps: 2392559
+Average Episodic Length: 61.897
+Average Episodic Returns: 18.865
+Average actor loss: -0.025440985336899757
+
+Iteration: 496
+Elapsed time-steps: 2397414
+Average Episodic Length: 64.733
+Average Episodic Returns: 22.779
+Average actor loss: -0.026961032301187515
+
+Iteration: 497
+Elapsed time-steps: 2402226
+Average Episodic Length: 62.494
+Average Episodic Returns: 17.872
+Average actor loss: -0.026594385504722595
+
+Iteration: 498
+Elapsed time-steps: 2407086
+Average Episodic Length: 63.117
+Average Episodic Returns: 21.353
+Average actor loss: -0.025978202000260353
+
+Iteration: 499
+Elapsed time-steps: 2411941
+Average Episodic Length: 59.938
+Average Episodic Returns: 18.376
+Average actor loss: -0.02510262094438076
+
+Iteration: 500
+Elapsed time-steps: 2416772
+Average Episodic Length: 60.388
+Average Episodic Returns: 19.813
+Average actor loss: -0.025162409991025925
+
+Iteration: 501
+Elapsed time-steps: 2421634
+Average Episodic Length: 63.143
+Average Episodic Returns: 20.679
+Average actor loss: -0.026087503880262375
+
+Iteration: 502
+Elapsed time-steps: 2426475
+Average Episodic Length: 63.697
+Average Episodic Returns: 23.248
+Average actor loss: -0.024651790037751198
+
+Iteration: 503
+Elapsed time-steps: 2431275
+Average Episodic Length: 65.753
+Average Episodic Returns: 23.979
+Average actor loss: -0.02574116364121437
+
+Iteration: 504
+Elapsed time-steps: 2436097
+Average Episodic Length: 61.821
+Average Episodic Returns: 20.097
+Average actor loss: -0.026575248688459396
+
+Iteration: 505
+Elapsed time-steps: 2440937
+Average Episodic Length: 62.051
+Average Episodic Returns: 22.244
+Average actor loss: -0.025419112294912338
+
+Iteration: 506
+Elapsed time-steps: 2445747
+Average Episodic Length: 64.133
+Average Episodic Returns: 22.48
+Average actor loss: -0.025551170110702515
+
+Iteration: 507
+Elapsed time-steps: 2450579
+Average Episodic Length: 64.427
+Average Episodic Returns: 21.745
+Average actor loss: -0.025346586480736732
+
+Iteration: 508
+Elapsed time-steps: 2455383
+Average Episodic Length: 64.919
+Average Episodic Returns: 22.1
+Average actor loss: -0.026551436632871628
+
+Iteration: 509
+Elapsed time-steps: 2460203
+Average Episodic Length: 61.795
+Average Episodic Returns: 21.909
+Average actor loss: -0.02534487284719944
+
+Iteration: 510
+Elapsed time-steps: 2465005
+Average Episodic Length: 63.184
+Average Episodic Returns: 21.879
+Average actor loss: -0.024413619190454483
+
+Iteration: 511
+Elapsed time-steps: 2469841
+Average Episodic Length: 64.48
+Average Episodic Returns: 22.575
+Average actor loss: -0.024943817406892776
+
+Iteration: 512
+Elapsed time-steps: 2474652
+Average Episodic Length: 63.303
+Average Episodic Returns: 22.673
+Average actor loss: -0.025751322507858276
+
+Iteration: 513
+Elapsed time-steps: 2479494
+Average Episodic Length: 62.077
+Average Episodic Returns: 17.906
+Average actor loss: -0.0264451764523983
+
+Iteration: 514
+Elapsed time-steps: 2484311
+Average Episodic Length: 65.095
+Average Episodic Returns: 22.778
+Average actor loss: -0.02602418139576912
+
+Iteration: 515
+Elapsed time-steps: 2489145
+Average Episodic Length: 63.605
+Average Episodic Returns: 21.314
+Average actor loss: -0.025073733180761337
+
+Iteration: 516
+Elapsed time-steps: 2494004
+Average Episodic Length: 63.104
+Average Episodic Returns: 22.157
+Average actor loss: -0.025153081864118576
+
+Iteration: 517
+Elapsed time-steps: 2498823
+Average Episodic Length: 63.408
+Average Episodic Returns: 21.686
+Average actor loss: -0.028341973200440407
+
+Iteration: 518
+Elapsed time-steps: 2503650
+Average Episodic Length: 62.688
+Average Episodic Returns: 19.972
+Average actor loss: -0.02642827294766903
+
+Iteration: 519
+Elapsed time-steps: 2508480
+Average Episodic Length: 66.164
+Average Episodic Returns: 22.223
+Average actor loss: -0.025953954085707664
+
+Iteration: 520
+Elapsed time-steps: 2513293
+Average Episodic Length: 61.705
+Average Episodic Returns: 20.654
+Average actor loss: -0.028752684593200684
+
+Iteration: 521
+Elapsed time-steps: 2518118
+Average Episodic Length: 62.662
+Average Episodic Returns: 18.346
+Average actor loss: -0.02683679200708866
+
+Iteration: 522
+Elapsed time-steps: 2522926
+Average Episodic Length: 67.718
+Average Episodic Returns: 21.357
+Average actor loss: -0.027181372046470642
+
+Iteration: 523
+Elapsed time-steps: 2527771
+Average Episodic Length: 60.562
+Average Episodic Returns: 20.102
+Average actor loss: -0.027422625571489334
+
+Iteration: 524
+Elapsed time-steps: 2532595
+Average Episodic Length: 61.063
+Average Episodic Returns: 20.504
+Average actor loss: -0.026773352175951004
+
+Iteration: 525
+Elapsed time-steps: 2537400
+Average Episodic Length: 63.224
+Average Episodic Returns: 21.935
+Average actor loss: -0.025584515184164047
+
+Iteration: 526
+Elapsed time-steps: 2542226
+Average Episodic Length: 65.216
+Average Episodic Returns: 21.105
+Average actor loss: -0.02710547484457493
+
+Iteration: 527
+Elapsed time-steps: 2547031
+Average Episodic Length: 64.932
+Average Episodic Returns: 21.719
+Average actor loss: -0.024533476680517197
+
+Iteration: 528
+Elapsed time-steps: 2551866
+Average Episodic Length: 63.618
+Average Episodic Returns: 21.145
+Average actor loss: -0.024801289662718773
+
+Iteration: 529
+Elapsed time-steps: 2556706
+Average Episodic Length: 64.533
+Average Episodic Returns: 24.009
+Average actor loss: -0.02381903864443302
+
+Iteration: 530
+Elapsed time-steps: 2561532
+Average Episodic Length: 63.5
+Average Episodic Returns: 22.868
+Average actor loss: -0.025657877326011658
+
+Iteration: 531
+Elapsed time-steps: 2566344
+Average Episodic Length: 64.16
+Average Episodic Returns: 22.144
+Average actor loss: -0.025563906878232956
+
+Iteration: 532
+Elapsed time-steps: 2571217
+Average Episodic Length: 64.118
+Average Episodic Returns: 22.063
+Average actor loss: -0.02447228692471981
+
+Iteration: 533
+Elapsed time-steps: 2576067
+Average Episodic Length: 62.987
+Average Episodic Returns: 21.108
+Average actor loss: -0.027250420302152634
+
+Iteration: 534
+Elapsed time-steps: 2580905
+Average Episodic Length: 62.831
+Average Episodic Returns: 21.98
+Average actor loss: -0.026571225374937057
+
+Iteration: 535
+Elapsed time-steps: 2585735
+Average Episodic Length: 62.727
+Average Episodic Returns: 21.078
+Average actor loss: -0.027472641319036484
+
+Iteration: 536
+Elapsed time-steps: 2590591
+Average Episodic Length: 63.065
+Average Episodic Returns: 23.202
+Average actor loss: -0.02601778134703636
+
+Iteration: 537
+Elapsed time-steps: 2595432
+Average Episodic Length: 62.87
+Average Episodic Returns: 23.342
+Average actor loss: -0.027259275317192078
+
+Iteration: 538
+Elapsed time-steps: 2600284
+Average Episodic Length: 63.842
+Average Episodic Returns: 19.847
+Average actor loss: -0.025979166850447655
+
+Iteration: 539
+Elapsed time-steps: 2605150
+Average Episodic Length: 64.88
+Average Episodic Returns: 23.791
+Average actor loss: -0.024775059893727303
+
+Iteration: 540
+Elapsed time-steps: 2609955
+Average Episodic Length: 61.603
+Average Episodic Returns: 20.804
+Average actor loss: -0.027116212993860245
+
+Iteration: 541
+Elapsed time-steps: 2614758
+Average Episodic Length: 64.04
+Average Episodic Returns: 22.897
+Average actor loss: -0.025508280843496323
+
+Iteration: 542
+Elapsed time-steps: 2619606
+Average Episodic Length: 61.367
+Average Episodic Returns: 21.605
+Average actor loss: -0.026701826602220535
+
+Iteration: 543
+Elapsed time-steps: 2624416
+Average Episodic Length: 61.667
+Average Episodic Returns: 19.954
+Average actor loss: -0.027519306167960167
+
+Iteration: 544
+Elapsed time-steps: 2629276
+Average Episodic Length: 63.947
+Average Episodic Returns: 22.103
+Average actor loss: -0.02708405628800392
+
+Iteration: 545
+Elapsed time-steps: 2634107
+Average Episodic Length: 63.566
+Average Episodic Returns: 19.647
+Average actor loss: -0.02732062339782715
+
+Iteration: 546
+Elapsed time-steps: 2638977
+Average Episodic Length: 64.079
+Average Episodic Returns: 22.288
+Average actor loss: -0.02609298750758171
+
+Iteration: 547
+Elapsed time-steps: 2643815
+Average Episodic Length: 62.026
+Average Episodic Returns: 20.208
+Average actor loss: -0.025981005281209946
+
+Iteration: 548
+Elapsed time-steps: 2648652
+Average Episodic Length: 63.645
+Average Episodic Returns: 22.567
+Average actor loss: -0.024784479290246964
+
+Iteration: 549
+Elapsed time-steps: 2653486
+Average Episodic Length: 61.974
+Average Episodic Returns: 19.755
+Average actor loss: -0.026521939784288406
+
+Iteration: 550
+Elapsed time-steps: 2658294
+Average Episodic Length: 61.641
+Average Episodic Returns: 22.538
+Average actor loss: -0.026574432849884033
+
+Iteration: 551
+Elapsed time-steps: 2663112
+Average Episodic Length: 65.108
+Average Episodic Returns: 22.237
+Average actor loss: -0.027222219854593277
+
+Iteration: 552
+Elapsed time-steps: 2667939
+Average Episodic Length: 66.123
+Average Episodic Returns: 21.844
+Average actor loss: -0.026251038536429405
+
+Iteration: 553
+Elapsed time-steps: 2672769
+Average Episodic Length: 64.4
+Average Episodic Returns: 23.256
+Average actor loss: -0.024695202708244324
+
+Iteration: 554
+Elapsed time-steps: 2677609
+Average Episodic Length: 64.533
+Average Episodic Returns: 22.567
+Average actor loss: -0.026253530755639076
+
+Iteration: 555
+Elapsed time-steps: 2682438
+Average Episodic Length: 61.91
+Average Episodic Returns: 22.565
+Average actor loss: -0.0262669138610363
+
+Iteration: 556
+Elapsed time-steps: 2687284
+Average Episodic Length: 62.128
+Average Episodic Returns: 19.909
+Average actor loss: -0.024563446640968323
+
+Iteration: 557
+Elapsed time-steps: 2692135
+Average Episodic Length: 61.405
+Average Episodic Returns: 19.506
+Average actor loss: -0.027144452556967735
+
+Iteration: 558
+Elapsed time-steps: 2696938
+Average Episodic Length: 60.797
+Average Episodic Returns: 20.839
+Average actor loss: -0.025493627414107323
+
+Iteration: 559
+Elapsed time-steps: 2701754
+Average Episodic Length: 61.744
+Average Episodic Returns: 18.445
+Average actor loss: -0.026996636763215065
+
+Iteration: 560
+Elapsed time-steps: 2706574
+Average Episodic Length: 61.795
+Average Episodic Returns: 18.99
+Average actor loss: -0.029245052486658096
+
+Iteration: 561
+Elapsed time-steps: 2711424
+Average Episodic Length: 62.987
+Average Episodic Returns: 20.747
+Average actor loss: -0.02575032413005829
+
+Iteration: 562
+Elapsed time-steps: 2716272
+Average Episodic Length: 62.961
+Average Episodic Returns: 20.512
+Average actor loss: -0.025502193719148636
+
+Iteration: 563
+Elapsed time-steps: 2721124
+Average Episodic Length: 64.693
+Average Episodic Returns: 23.916
+Average actor loss: -0.025573264807462692
+
+Iteration: 564
+Elapsed time-steps: 2725958
+Average Episodic Length: 64.453
+Average Episodic Returns: 13.017
+Average actor loss: -0.013855758123099804
+
+Iteration: 565
+Elapsed time-steps: 2730768
+Average Episodic Length: 65.0
+Average Episodic Returns: 22.907
+Average actor loss: -0.025754481554031372
+
+Iteration: 566
+Elapsed time-steps: 2735648
+Average Episodic Length: 63.377
+Average Episodic Returns: 21.746
+Average actor loss: -0.02632944844663143
+
+Iteration: 567
+Elapsed time-steps: 2740521
+Average Episodic Length: 64.118
+Average Episodic Returns: 23.146
+Average actor loss: -0.024518610909581184
+
+Iteration: 568
+Elapsed time-steps: 2745383
+Average Episodic Length: 63.143
+Average Episodic Returns: 21.968
+Average actor loss: -0.026469435542821884
+
+Iteration: 569
+Elapsed time-steps: 2750209
+Average Episodic Length: 63.5
+Average Episodic Returns: 19.798
+Average actor loss: -0.025088857859373093
+
+Iteration: 570
+Elapsed time-steps: 2755076
+Average Episodic Length: 64.893
+Average Episodic Returns: 23.272
+Average actor loss: -0.025464829057455063
+
+Iteration: 571
+Elapsed time-steps: 2759905
+Average Episodic Length: 63.539
+Average Episodic Returns: 21.879
+Average actor loss: -0.026581332087516785
+
+Iteration: 572
+Elapsed time-steps: 2764747
+Average Episodic Length: 64.56
+Average Episodic Returns: 23.791
+Average actor loss: -0.02643088437616825
+
+Iteration: 573
+Elapsed time-steps: 2769597
+Average Episodic Length: 62.987
+Average Episodic Returns: 19.354
+Average actor loss: -0.027150850743055344
+
