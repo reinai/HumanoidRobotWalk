@@ -16,21 +16,20 @@ Episode = namedtuple('Episode', ['states', 'actions', 'rewards', 'next_states', 
 class TRPO():
     """ Main class that implements trpo algorithm to improve actor and critic neural networks """
 
-    def __init__(self, env, actor, critic, delta, gamma, cg_delta, alpha, backtrack_steps_num, gae_lambda,
-                 critic_epoch_num):
+    def __init__(self, env, actor, critic, delta, gamma, cg_delta, cg_iterations, alpha, backtrack_steps_num, critic_epoch_num):
         """
         Initialize the parameters of TRPO class
         Args:
-        :param env: environment which we will solve using trpo
-        :param actor: actor model
-        :param critic: critic model
-        :param delta: delta used as kl divergence constraint
+        :param env: environment which we will solve using trpo algorithm
+        :param actor: actor model for this problem that is used as a policy function
+        :param critic: critic model for this problem that is used as a value state function
+        :param delta: number used as a KL divergence constraint between two distributions
         :param gamma: discount factor
-        :param cg_delta: conjugate gradient offset
-        :param alpha: factor to compute max step to update actor parameters
+        :param cg_delta: conjugate gradient constraint to tell us when to stop with the process
+        :param cg_iterations: maximum number of iterations for conjugate gradient algortihm
+        :param alpha: factor to compute max step to update actor parameters in order to satisfy the KL divergence constraint (delta)
         :param backtrack_steps_num: number of steps to compute max step to update actor parameters
-        :param gae_lambda: gae factor
-        :param critic_epoch_num: number of epoch to train critic nn
+        :param critic_epoch_num: number of epoch to train critic neural network
         """
         self.actor = actor
         self.critic = critic
@@ -38,60 +37,94 @@ class TRPO():
         self.env = env
         self.gamma = gamma
         self.cg_delta = cg_delta
+        self.cg_iterations = cg_iterations
         self.alpha = alpha
         self.backtrack_steps_num = backtrack_steps_num
-        self.gae_lambda = gae_lambda
         self.critic_epoch_num = critic_epoch_num
 
-    """
-    def estimate_advantages(self, states, rewards):
-        values = self.critic.model.forward(states)
-        returns = torch.zeros_like(rewards)
-        gae = 0
-        for i in reversed(range(rewards.shape[0])):
-            if i == rewards.shape[0] - 1:
-                delta = rewards[i] - values[i]
-            else:
-                delta = rewards[i] + self.gamma * values[i+1] - values[i]
-            gae = delta + self.gamma * self.gae_lambda * gae
-            returns[i] = gae + values[i]
-        advantages = returns - values
-        return advantages
-    """
 
-    def estimate_advantages(self, states, rewards):
+    def estimate_advantages(self, states, next_state, rewards):
+        """
+        Estimating the advantage based on trajectories for one episode
+
+        :param states: states we visited during the episode
+        :param next_state: terminal state where we finished that episode
+        :param rewards: collected rewards in that concrete episode
+        :return: estimated advantage
+        """
+
+        #using critic nn to get state values
         values = self.critic.model.forward(states)
-        next_values = torch.zeros_like(rewards)
-        last_value = 0
+        #defining a variable to store rewards-to-go values
+        rtg = torch.zeros_like(rewards)
+        #calculating the value of terminal state where we finished the episode
+        last_value = self.critic.model.forward(next_state.unsqueeze(0))
+        #calculating rewards-to-go
         for i in reversed(range(rewards.shape[0])):
-            last_value = next_values[i] = rewards[i] + self.gamma * last_value
-        advantages = next_values - values
-        return advantages
+            last_value = rtg[i] = rewards[i] + self.gamma * last_value
+        #advantage = rewards-to-go - values
+        return rtg - values
+
 
     def surrogate_loss(self, new_probs, old_probs, advantages):
-        """ Defining surrogate loss"""
+        """
+        Calculating surrogate loss that is used for calculating policy network gradients.
+        Formula: mean(e^(p1-p2)*adv), where p1 and p2 are log probabilities
+
+        :param new_probs: log probabilities of the new policy
+        :param old_probs: log probabilities of the old policy
+        :param advantages: estimated advantage of all episodes of current epoch
+        :return: surrogate loss
+        """
         return (torch.exp(new_probs - old_probs) * advantages).mean()
 
+
     def kl_divergence(self, p, q):
-        """ Defining KL divergence """
+        """
+        Calculating the KL divergence between two distributions (old and new policy)
+        Formula: mean((mi1 - mi2)^2), because std1=std2
+
+        :param p: first distribution
+        :param q: second distribution
+        :return: KL divergence between two distributions
+        """
+
         p = p.detach()
-        return torch.square((p - q)).sum(-1).mean()
+        return torch.square((p - q)).sum(-1, keepdim=True).mean()
+
 
     def compute_grad(self, y, x, retain_graph=False, create_graph=False):
-        """ Computing gradient dy/dx"""
+        """
+        Calculating the derivative of y with respect to x -> dx/dy
+
+        :param y: function
+        :param x: parameter
+        :param retain_graph: boolean value should we retain a graph
+        :param create_graph: boolean value to define should we create a graph
+        :return: derivation dy/dx
+        """
+
         if create_graph:
             retain_graph = True
-        g = torch.autograd.grad(y, x, retain_graph=retain_graph, create_graph=create_graph)
-        g = torch.cat([t.view(-1) for t in g])
-        return g
+        grad = torch.autograd.grad(y, x, retain_graph=retain_graph, create_graph=create_graph)
+        grad = torch.cat([t.view(-1) for t in grad])
+        return grad
 
-    def conjugate_gradient(self, hvp_function, b, max_iterations=20):
-        """ Conjugate gradient algorithm to compute H^-1*b"""
+
+    def conjugate_gradient(self, hvp_function, b):
+        """
+        Calculate the H^1 * g using the conjugate gradient algorithm
+
+        :param hvp_function: hessian vector product function
+        :param b: vector that will be multiplied with inverse hessian matrix
+        :return: multiplication of vector g and inverse hessian matrix H^-1
+        """
+
         x = torch.zeros_like(b)
         r = b.clone()
         p = b.clone()
         i = 0
-        while i < max_iterations:
+        while i < self.cg_iterations:
             AVP = hvp_function(p)
             dot_old = r @ r
             alpha = dot_old / (p @ AVP)
@@ -104,45 +137,69 @@ class TRPO():
             i += 1
         return x
 
+
     def get_advantage_estimation(self, episodes):
-        """ Get advantage estimation that is in right form and normalized """
-        advantages = [self.estimate_advantages(states, rewards) for states, _, rewards, _, _ in episodes]
+        """
+        Function to gather all estimated advantages of each episode of the epoch in one variable and normalize it
+
+        :param episodes: episodes of the epoch
+        :return: estimated normalized advantages
+        """
+
+        #collect all advantages
+        advantages = [self.estimate_advantages(states, next_states[-1], rewards) for states, _, rewards, next_states, _ in episodes]
         advantages = torch.cat(advantages, dim=0).flatten()
-        # return (advantages - advantages.mean()) / advantages.std()
-        return advantages
+        #normalizing the advantages
+        return (advantages - advantages.mean()) / (advantages.std() + 1e-8)
+
 
     def get_probability(self, actions, states):
+        """
+        Calculating logaritmic probability of actions based on states
+
+        :param actions: actions of the trajectories
+        :param states: states of the trajectories
+        :return: logarithmic probability
+        """
+
+        #mean of the distribution
         mu = self.actor.model.forward(states)
         multivariate_gaussian_distribution = MultivariateNormal(loc=mu, covariance_matrix=self.actor.covariance_matrix)
         logarithmic_probability = multivariate_gaussian_distribution.log_prob(value=actions)
         return logarithmic_probability
 
+
     def update_agent(self, episodes):
-        """ Method to update agent that we train """
+        """
+        Function that update both critic and actor neural network's parameters
+
+        :param episodes: episodes in the epoch
+        """
+
         # PART 1: get states and actions provided through parameter episodes
         states = torch.cat([r.states for r in episodes], dim=0)
-        next_states = torch.cat([r.next_states for r in episodes], dim=0)
         actions = torch.cat([r.actions for r in episodes], dim=0)
 
         # PART 2: calculate advantages based on trajectories and normalize it
-        advantages = self.get_advantage_estimation(episodes)
+        advantages = self.get_advantage_estimation(episodes).detach()
+
         # PART 3: update critic parameters based on advantage estimation
         for iter in range(self.critic_epoch_num):
-            train_advantages = self.get_advantage_estimation(episodes)
-            self.critic.update_critic(train_advantages)
-        # PART 4: get distribution of the policy and define surrogate loss and kl divergence
+            self.critic.update_critic(self.get_advantage_estimation(episodes))
 
+        # PART 4: get distribution of the policy and define surrogate loss and kl divergence
         probability = self.get_probability(actions, states)
         distribution = self.actor.model.forward(states)
-
         L = self.surrogate_loss(probability, probability.detach(), advantages)
         KL = self.kl_divergence(distribution, distribution)
+
         # PART 5: compute gradient for surrogate loss and kl divergence
         parameters = list(self.actor.model.parameters())
         g = self.compute_grad(L, parameters, retain_graph=True)
         d_kl = self.compute_grad(KL, parameters, create_graph=True)
+        #print('Gradient -> ', g)
 
-        # PART 6: define hessian vector product, compute search direction and max_length to get max step
+        # PART 6: define hessian vector product function, compute search direction and max_length to get max step
         def HVP(v):
             return self.compute_grad(d_kl @ v, parameters, retain_graph=True)
 
@@ -152,6 +209,7 @@ class TRPO():
 
         # PART 7: check if max step satisfy the constraint, if not make it smaller
         def criterion(step):
+            #print('Step ->', step)
             self.actor.upgrade_parameters(step)
             with torch.no_grad():
                 distribution_new = self.actor.model.forward(states)
@@ -159,6 +217,8 @@ class TRPO():
                 L_new = self.surrogate_loss(probability_new, probability, advantages)
                 KL_new = self.kl_divergence(distribution, distribution_new)
             L_improvement = L_new - L
+            #print('Distribution difference ->', KL_new)
+            #print('Loss improvement ->', L_new)
             if L_improvement > 0 and KL_new <= self.delta:
                 return True
             self.actor.upgrade_parameters(-step)
@@ -168,27 +228,48 @@ class TRPO():
         while not criterion((self.alpha ** i) * max_step) and i < self.backtrack_steps_num:
             i += 1
 
-    def train(self, epochs, num_of_episodes, render_frequency=None, max_reward_per_episode=5000):
-        """ Training an agent """
+
+    def train(self, epochs, num_of_timesteps, max_timesteps_per_episode, render_frequency=None, starting_with=0):
+        """
+        Function for running the trajectories and training neural networks using them
+
+        :param epochs: number of epochs
+        :param num_of_timesteps: number of timesteps in one epoch (because it is continuous world)
+        :param max_timesteps_per_episode: maximal number of timestep for one episode
+        :param render_frequency: render frequency in miliseconds
+        :param starting_with: define a number of epoch to start with
+        """
+
         mean_total_rewards = []
         global_episode = 0
         for epoch in range(epochs):
-            episodes = []
-            episode_total_rewards = []
-            for t in range(num_of_episodes):
+
+            episodes, episode_total_rewards = [], []
+            curr_number_of_timesteps, num_of_episodes = 0, 0
+            while curr_number_of_timesteps < num_of_timesteps:
+
+                num_of_steps = 0
                 state = self.env.reset()
                 done = False
                 samples = []
-                episode_reward = 0
-                while not done and episode_reward < max_reward_per_episode:
+                curr_episode_steps = 0
+                while not done and curr_episode_steps < max_timesteps_per_episode:
+
+                    #rendering the environment
                     if render_frequency is not None and global_episode % render_frequency == 0:
                         self.env.render()
+                    #getting action and probability of it based on current state
                     action, probability = self.actor.get_action(state)
                     curr_action = action.numpy()
+                    #running current action in the environment
                     next_state, reward, done, _ = self.env.step(curr_action)
-                    episode_reward += reward
+                    num_of_steps += 1
                     samples.append((state, action, reward, next_state, probability))
                     state = next_state
+                    curr_episode_steps += 1
+
+                num_of_episodes += 1
+                curr_number_of_timesteps += curr_episode_steps
                 states, actions, rewards, next_states, probabilities = zip(*samples)
                 states = torch.stack([torch.from_numpy(state) for state in states], dim=0).float()
                 next_states = torch.stack([torch.from_numpy(state) for state in next_states], dim=0).float()
@@ -198,37 +279,49 @@ class TRPO():
                 episodes.append(Episode(states, actions, rewards, next_states, probabilities))
                 episode_total_rewards.append(rewards.sum().item())
                 global_episode += 1
+
+            #updating the agent
             self.update_agent(episodes)
             mtr = np.mean(episode_total_rewards)
-            print(f'E: {epoch}.\tMean total reward across {num_of_episodes} episodes: {mtr}')
             mean_total_rewards.append(mtr)
-            if epoch % 10 == 9:
+            #printing the statistics of current epoch
+            print(f'E: {epoch+1+starting_with}.\tMean total reward across {num_of_episodes} episodes and {curr_number_of_timesteps} timesteps: {mtr}')
+
+            #every 50 epoch, save all mean rewards and model for actor & critic
+            if epoch % 50 == 49:
                 torch.save(self.actor.model.state_dict(),
-                           'HumanoidRobotWalk/code/trpo/models/actor' + str(epoch + 1) + '.pt')
+                           'HumanoidRobotWalk/code/trpo/models/actor' + str(epoch + starting_with + 1) + '.pt')
                 torch.save(self.critic.model.state_dict(),
-                           'HumanoidRobotWalk/code/trpo/models/critic' + str(epoch + 1) + '.pt')
-                with open('HumanoidRobotWalk/code/trpo/models/rewards' + str(epoch + 1) + '.txt', 'w+') as fp:
+                           'HumanoidRobotWalk/code/trpo/models/critic' + str(epoch + starting_with + 1) + '.pt')
+                with open('HumanoidRobotWalk/code/trpo/models/rewards' + str(epoch + starting_with + 1) + '.txt', 'w+') as fp:
                     fp.write(str(mean_total_rewards))
+
+        #plotting the results
         plt.plot(mean_total_rewards)
         plt.show()
 
 
 if __name__ == "__main__":
+    #main funtion for training
     env = gym.make('HumanoidPyBulletEnv-v0')
-    # env.render()
+    env.render()
     env.reset()
     actor = Actor(44, 17)
-    #actor.model.load_state_dict(torch.load('HumanoidRobotWalk/code/trpo/models/actor570.pt'))
-    critic = Critic(44, 1)
-    #critic.model.load_state_dict(torch.load('HumanoidRobotWalk/code/trpo/models/critic570.pt'))
+    actor.model.load_state_dict(torch.load('./models/actor4300.pt'))
+    critic = Critic(44, 1, 2.5e-4)
+    critic.model.load_state_dict(torch.load('./models/critic4300.pt'))
     trpo = TRPO(env=env,
                 actor=actor,
                 critic=critic,
-                delta=0.01,
+                delta=1e-6,
                 gamma=0.99,
-                cg_delta=0.1,
-                alpha=0.9,
-                backtrack_steps_num=30,
-                gae_lambda=0.97,
-                critic_epoch_num=10)
-    trpo.train(epochs=1000, num_of_episodes=200, render_frequency=None)
+                cg_delta=0.001,
+                cg_iterations = 100,
+                alpha=0.997,
+                backtrack_steps_num=100,
+                critic_epoch_num=30)
+    trpo.train(epochs=2000,
+               num_of_timesteps=4800,
+               max_timesteps_per_episode=1600,
+               render_frequency=100,
+               starting_with = 4300)
