@@ -43,12 +43,11 @@ class TRPO():
         self.critic_epoch_num = critic_epoch_num
 
 
-    def estimate_advantages(self, states, next_state, rewards):
+    def estimate_advantages(self, states, rewards):
         """
         Estimating the advantage based on trajectories for one episode
 
         :param states: states we visited during the episode
-        :param next_state: terminal state where we finished that episode
         :param rewards: collected rewards in that concrete episode
         :return: estimated advantage
         """
@@ -57,8 +56,8 @@ class TRPO():
         values = self.critic.model.forward(states)
         #defining a variable to store rewards-to-go values
         rtg = torch.zeros_like(rewards)
-        #calculating the value of terminal state where we finished the episode
-        last_value = self.critic.model.forward(next_state.unsqueeze(0))
+        #setting last value on zero
+        last_value = 0
         #calculating rewards-to-go
         for i in reversed(range(rewards.shape[0])):
             last_value = rtg[i] = rewards[i] + self.gamma * last_value
@@ -147,7 +146,7 @@ class TRPO():
         """
 
         #collect all advantages
-        advantages = [self.estimate_advantages(states, next_states[-1], rewards) for states, _, rewards, next_states, _ in episodes]
+        advantages = [self.estimate_advantages(states, rewards) for states, _, rewards, _, _ in episodes]
         advantages = torch.cat(advantages, dim=0).flatten()
         #normalizing the advantages
         return (advantages - advantages.mean()) / (advantages.std() + 1e-8)
@@ -304,24 +303,24 @@ class TRPO():
 if __name__ == "__main__":
     #main funtion for training
     env = gym.make('HumanoidPyBulletEnv-v0')
-    env.render()
+    #env.render()
     env.reset()
     actor = Actor(44, 17)
-    actor.model.load_state_dict(torch.load('./models/actor4300.pt'))
+    #actor.model.load_state_dict(torch.load('HumanoidRobotWalk/code/trpo/actor2000.pt'))
     critic = Critic(44, 1, 2.5e-4)
-    critic.model.load_state_dict(torch.load('./models/critic4300.pt'))
+    #critic.model.load_state_dict(torch.load('HumanoidRobotWalk/code/trpo/critic2000.pt'))
     trpo = TRPO(env=env,
                 actor=actor,
                 critic=critic,
-                delta=1e-6,
+                delta=1e-4,
                 gamma=0.99,
-                cg_delta=0.001,
-                cg_iterations = 100,
+                cg_delta=1e-6,
+                cg_iterations = 20,
                 alpha=0.997,
                 backtrack_steps_num=100,
-                critic_epoch_num=30)
+                critic_epoch_num=20)
     trpo.train(epochs=2000,
                num_of_timesteps=4800,
                max_timesteps_per_episode=1600,
-               render_frequency=100,
-               starting_with = 4300)
+               render_frequency=None,
+               starting_with = 2000)
