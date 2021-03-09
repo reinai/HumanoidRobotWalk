@@ -304,9 +304,9 @@ if __name__ == "__main__":
     env.render()
     env.reset()
     actor = Actor(44, 17)
-    actor.model.load_state_dict(torch.load('./models/actor16500.pt'))
+    actor.model.load_state_dict(torch.load('./models/actor40900.pth'))
     critic = Critic(44, 1, 2.5e-4)
-    critic.model.load_state_dict(torch.load('./models/critic16500.pt'))
+    critic.model.load_state_dict(torch.load('./models/critic40900.pth'))
     trpo = TRPO(env=env,
                 actor=actor,
                 critic=critic,

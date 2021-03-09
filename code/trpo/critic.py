@@ -19,9 +19,9 @@ class CriticModel(nn.Module):
 
         super(CriticModel, self).__init__()
 
-        self.fc1 = nn.Linear(input_dim, 128)
-        self.fc2 = nn.Linear(128, 64)
-        self.fc3 = nn.Linear(64, output_dim)
+        self.first_layer = nn.Linear(input_dim, 128)
+        self.second_layer = nn.Linear(128, 64)
+        self.third_layer = nn.Linear(64, output_dim)
 
 
     def forward(self, x):
@@ -34,9 +34,9 @@ class CriticModel(nn.Module):
 
         warnings.filterwarnings("ignore")
         x = torch.tensor(x, dtype=torch.float32)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
+        x = F.relu(self.first_layer(x))
+        x = F.relu(self.second_layer(x))
+        x = self.third_layer(x)
         return x
 
 

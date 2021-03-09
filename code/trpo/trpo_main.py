@@ -6,7 +6,7 @@ from actor import Actor
 from critic import Critic
 import sys
 
-# models/actor16500.pt
+# models/actor40900.pth
 actor_model_path = input("Enter actor model file path: ")
 
 env = gym.make('HumanoidPyBulletEnv-v0')

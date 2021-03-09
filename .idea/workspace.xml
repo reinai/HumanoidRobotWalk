@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b24c4346-a6f1-40fe-8cc5-7053e5abe187" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/HumanoidRobotWalk.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HumanoidRobotWalk.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/trpo/actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/trpo/actor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/trpo/critic.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/trpo/critic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/trpo/trpo_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/trpo/train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/trpo/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/trpo/train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/trpo/trpo_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/trpo/trpo_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,16 +83,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/code/plots/trpo_images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/code/trpo/models" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/code/trpo/models" />
       <recent name="$PROJECT_DIR$/code/plots/trpo_images" />
       <recent name="$PROJECT_DIR$/code/plots/trpo_log_files" />
       <recent name="$PROJECT_DIR$/code/trained_models/trpo/96 hours" />
       <recent name="$PROJECT_DIR$/code/trained_models/trpo/24 hours" />
-      <recent name="$PROJECT_DIR$/code/trpo/models" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/code/trained_models/trpo/240 hours" />
     </key>
   </component>
   <component name="RunManager">
