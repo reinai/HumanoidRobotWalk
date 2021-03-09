@@ -21,7 +21,11 @@ and enter the absolute file path to the trained model.<br><br>
 Trained models are available at: `root/code/trained_models/`.
 
 # In motion
-TO DO
+## TRPO
+![TRPO_in_motion](https://github.com/reinai/HumanoidRobotWalk/blob/main/utils/trpo.gif)
+
+## PPO
+![PPO_in_motion](https://github.com/reinai/HumanoidRobotWalk/blob/main/utils/ppo.gif)
 
 ## Numerical results
 TO DO
