@@ -63,7 +63,7 @@ class Critic():
         :param advantages: estimation of advantages
         """
 
-        loss = .5 * (advantages ** 2).mean()  # MSE
+        loss = (advantages ** 2).mean()  # MSE
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()

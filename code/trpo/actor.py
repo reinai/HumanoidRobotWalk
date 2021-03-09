@@ -23,7 +23,6 @@ class ActorModel(nn.Module):
         self.fc2 = nn.Linear(128, 64)
         self.fc3 = nn.Linear(64, output_dim)
 
-
     def forward(self, x):
         """
         Forward pass through actor neural network
@@ -54,7 +53,6 @@ class Actor():
         self.model = ActorModel(input_dim, output_dim)
         self.covariance_matrix = torch.diag(input=torch.full(size=(output_dim,), fill_value=0.5), diagonal=0)
 
-
     def get_action(self, state):
         """
         Getting action for current state
@@ -69,8 +67,19 @@ class Actor():
         log_probability = multivariate_gaussian_distribution.log_prob(value=action)
         return action, log_probability
 
+    def get_mean_std(self, states):
+        """
+        Based on states returns means and standard deviations
 
-    def upgrade_parameters(self, grads):
+        :param states: observed states
+        :return: means and standard deviations
+        """
+
+        mean = self.model.forward(states)
+        std = torch.exp(nn.Parameter(torch.zeros(1, 17)).expand_as(mean))
+        return mean, std
+
+    def update_parameters(self, grads):
         """
         Manually updating parameters of actor model with gradient
 
