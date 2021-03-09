@@ -28,6 +28,16 @@ Trained models are available at: `root/code/trained_models/`.
 ![PPO_in_motion](https://github.com/reinai/HumanoidRobotWalk/blob/main/utils/ppo.gif)
 
 ## Numerical results
-TO DO
+<table>
+<tr> <td> <i>Training time [h]</i> </td>  <td>24</td> <td>96</td></tr>
+<tr> <td> <i>TRPO</i>  <td> <img src="https://raw.githubusercontent.com/reinai/HumanoidRobotWalk/main/code/plots/trpo_images/figure1.png"> </td> <td><img src="https://raw.githubusercontent.com/reinai/HumanoidRobotWalk/main/code/plots/trpo_images/figure2.png"></td></tr>
+</table>
+
+<table>
+<tr> <td> <i>Training time [h]</i> </td>  <td>6.5</td> <td>48</td></tr>
+<tr> <td> <i>PPO</i>  <td> <img src="https://raw.githubusercontent.com/reinai/HumanoidRobotWalk/main/code/plots/ppo_images/figure_1.png"> </td> <td><img src="https://raw.githubusercontent.com/reinai/HumanoidRobotWalk/main/code/plots/ppo_images/figure_5.png"></td></tr>
+</table>
+Click on image for full view.
+<br>
 
 Copyright (c) 2021 Nikola Zubić, Vasilije Pantić
