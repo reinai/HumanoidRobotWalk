@@ -40,4 +40,5 @@ Trained models are available at: `root/code/trained_models/`.
 Click on image for full view.
 <br>
 
+<br>
 Copyright (c) 2021 Nikola Zubić, Vasilije Pantić
